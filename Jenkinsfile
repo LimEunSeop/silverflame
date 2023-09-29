@@ -24,14 +24,14 @@ pipeline {
       }
       
       steps {
-        sshagent(credentials: ['silverflame_app']) {
+        // sshagent(credentials: ['silverflame_app']) {
           // sh 'scp ./public root@silverflame_app:/home/node/app/public'
           // sh 'scp ./.next/standalone root@silverflame_app:/home/node/app/'
           // sh 'ssh root@silverflame_app "mkdir /home/node/app/.next"'
           // sh 'scp ./.next/static root@silverflame_app:/home/node/app/.next/static'
 
           // sh 'ssh root@silverflame_app "pm2-runtime start node -- /home/node/app/server.js"'
-        }
+        // }
       }
     }
   }
