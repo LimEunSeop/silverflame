@@ -7,7 +7,7 @@ pipeline {
 
   stages {
 
-    stach('Install Depandencies') {
+    stage('Install Depandencies') {
       when {
         branch 'main'
       }
