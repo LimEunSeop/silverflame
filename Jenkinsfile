@@ -6,24 +6,14 @@ pipeline {
   }
 
   stages {
-    stage('Build') {
+    stage('Build & Test') {
       when {
         branch 'main'
       }
 
       steps {
-        nodejs(nodeJSInstallationName: 'NodeJS 18.18.0') {
+        nodejs(nodeJSInstallationName: 'node-lts') {
           sh 'npm ci && npm run build'
-        }
-      }
-    }
-    stage('Test') {
-      when {
-        branch 'main'
-      }
-
-      steps {
-        nodejs(nodeJSInstallationName: 'NodeJS 18.18.0') {
           sh 'npm run test:ci'
         }
       }
