@@ -6,23 +6,15 @@ pipeline {
   }
 
   stages {
-
-    stage('Install Depandencies') {
-      when {
-        branch 'main'
-      }
-
-      steps {
-        sh 'npm ci'
-      }
-    }
     stage('Build') {
       when {
         branch 'main'
       }
 
       steps {
-        sh 'npm run build'
+        nodejs(nodeJSInstallationName: 'NodeJS 18.18.0') {
+          sh 'npm ci && npm run build'
+        }
       }
     }
     stage('Test') {
@@ -30,7 +22,7 @@ pipeline {
         branch 'main'
       }
 
-      steps {
+      nodejs(nodeJSInstallationName: 'NodeJS 18.18.0') {
         sh 'npm run test:ci'
       }
     }
@@ -40,7 +32,7 @@ pipeline {
       }
       
       steps {
-        sshagent(credentials: ['key-dallog']) {
+        sshagent(credentials: ['silverflame_app']) {
           sh 'scp ./public root@silverflame_app:/home/node/app/public'
           sh 'scp ./.next/standalone root@silverflame_app:/home/node/app/'
           sh 'ssh root@silverflame_app "mkdir /home/node/app/.next"'
