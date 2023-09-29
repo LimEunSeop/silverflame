@@ -31,7 +31,7 @@ pipeline {
       }
 
       steps {
-
+        sh 'npm run test:ci'
       }
     }
     stage('Deploy') {
@@ -40,13 +40,13 @@ pipeline {
       }
       
       steps {
-        dir('frontend/dist') {
-          sshagent(credentials: ['key-dallog']) {
-            sh 'ls'
-            sh 'scp ./index.html ubuntu@192.168.XXX.XXX:/home/ubuntu/'
-            sh 'scp ./bundle.js ubuntu@192.168.XXX.XXX:/home/ubuntu/'
-            sh 'ssh ubuntu@192.168.XXX.XXX "sudo mv ./index.html ./html && sudo mv ./bundle.js ./html"'
-          }
+        sshagent(credentials: ['key-dallog']) {
+          sh 'scp ./public root@silverflame_app:/home/node/app/public'
+          sh 'scp ./.next/standalone root@silverflame_app:/home/node/app/'
+          sh 'ssh root@silverflame_app "mkdir /home/node/app/.next"'
+          sh 'scp ./.next/static root@silverflame_app:/home/node/app/.next/static'
+
+          sh 'ssh root@silverflame_app "pm2-runtime start node -- /home/node/app/server.js"'
         }
       }
     }
