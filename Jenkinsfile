@@ -22,8 +22,10 @@ pipeline {
         branch 'main'
       }
 
-      nodejs(nodeJSInstallationName: 'NodeJS 18.18.0') {
-        sh 'npm run test:ci'
+      steps {
+        nodejs(nodeJSInstallationName: 'NodeJS 18.18.0') {
+          sh 'npm run test:ci'
+        }
       }
     }
     stage('Deploy') {
