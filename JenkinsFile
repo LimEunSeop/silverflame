@@ -25,12 +25,12 @@ pipeline {
       
       steps {
         sshagent(credentials: ['silverflame_app']) {
-          sh 'scp -r ./public root@silverflame_app:/home/node/app'
-          sh 'scp -r ./.next/standalone root@silverflame_app:/home/node/app'
-          sh 'ssh root@silverflame_app "mkdir /home/node/app/.next"'
-          sh 'scp -r ./.next/static root@silverflame_app:/home/node/app/.next'
+          sh 'scp -r ./public node@silverflame_app:/home/node/app'
+          sh 'scp -r ./.next/standalone/* node@silverflame_app:/home/node/app'
+          sh 'ssh node@silverflame_app "mkdir /home/node/app/.next"'
+          sh 'scp -r ./.next/static node@silverflame_app:/home/node/app/.next'
 
-          sh 'ssh root@silverflame_app "cd /home/node/app && mv ./standalone/* . && pm2-runtime start node -- /home/node/app/server.js"'
+          sh 'ssh node@silverflame_app "pm2-runtime start node -- /home/node/app/server.js"'
         }
       }
     }
