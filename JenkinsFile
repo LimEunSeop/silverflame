@@ -24,7 +24,8 @@ pipeline {
       }
       
       steps {
-        sshagent(credentials: ['silverflame_app']) {
+        withCredentials(bindings: [sshUserPrivateKey(passphraseVariable: 'P@ssw0rd', usernameVariable: 'node')]) {
+          // some block
           sh 'scp -r ./public node@silverflame_app:/home/node/app'
           sh 'scp -r ./.next/standalone/* node@silverflame_app:/home/node/app'
           sh 'ssh node@silverflame_app "mkdir /home/node/app/.next"'
@@ -32,6 +33,14 @@ pipeline {
 
           sh 'ssh node@silverflame_app "pm2-runtime start node -- /home/node/app/server.js"'
         }
+        // sshagent(credentials: ['silverflame_app']) {
+        //   sh 'scp -r ./public node@silverflame_app:/home/node/app'
+        //   sh 'scp -r ./.next/standalone/* node@silverflame_app:/home/node/app'
+        //   sh 'ssh node@silverflame_app "mkdir /home/node/app/.next"'
+        //   sh 'scp -r ./.next/static node@silverflame_app:/home/node/app/.next'
+
+        //   sh 'ssh node@silverflame_app "pm2-runtime start node -- /home/node/app/server.js"'
+        // }
       }
     }
   }
