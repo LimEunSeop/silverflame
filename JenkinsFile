@@ -22,17 +22,32 @@ pipeline {
       when {
         branch 'main'
       }
+
+      
       
       steps {
-        withCredentials(bindings: [sshUserPrivateKey(passphraseVariable: 'P@ssw0rd', usernameVariable: 'node')]) {
-          // some block
-          sh 'scp -r ./public node@silverflame_app:/home/node/app'
-          sh 'scp -r ./.next/standalone/* node@silverflame_app:/home/node/app'
-          sh 'ssh node@silverflame_app "mkdir /home/node/app/.next"'
-          sh 'scp -r ./.next/static node@silverflame_app:/home/node/app/.next'
+        def remote = [:]
+        remote.name = 'silverflame_app'
+        remote.host = 'silverflame_app'
+        remote.user = 'node'
+        remote.password = 'P@ssw0rd'
+        remote.allowAnyHosts = true
 
-          sh 'ssh node@silverflame_app "pm2-runtime start node -- /home/node/app/server.js"'
-        }
+        sshPut remote: remote, from: "./public", into: "."
+        sshPut remote: remote, from: "./.next/standalone/*", into: "."
+        sshCommand remote: remote, command: "mkdir .next"
+        sshPut remote: remote, from: "./.next/static", into: "./.next"
+
+        sshCommand remote: remote, command: "pm2-runtime start node -- /home/node/app/server.js"
+
+        // withCredentials([usernamePassword(credentialsId: 'silverflame_app', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
+        //   sh "scp -r ./public $USERNAME@silverflame_app:/home/node/app"
+        //   sh "scp -r ./.next/standalone/* $USERNAME@silverflame_app:/home/node/app"
+        //   sh "ssh $USERNAME@silverflame_app 'mkdir /home/node/app/.next'"
+        //   sh "scp -r ./.next/static $USERNAME@silverflame_app:/home/node/app/.next"
+
+        //   sh "ssh $USERNAME@silverflame_app 'pm2-runtime start node -- /home/node/app/server.js'"
+        // }
         // sshagent(credentials: ['silverflame_app']) {
         //   sh 'scp -r ./public node@silverflame_app:/home/node/app'
         //   sh 'scp -r ./.next/standalone/* node@silverflame_app:/home/node/app'
