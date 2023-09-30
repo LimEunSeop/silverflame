@@ -24,7 +24,7 @@ pipeline {
       }
       
       steps {
-        sshagent(['silverflame_app']) {
+        sshagent(credentials: ['silverflame_app']) {
           sh 'scp ./public root@silverflame_app:/home/node/app/public'
           sh 'scp ./.next/standalone root@silverflame_app:/home/node/app/'
           sh 'ssh root@silverflame_app "mkdir /home/node/app/.next"'
