@@ -5,13 +5,6 @@ pipeline {
     buildDiscarder logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '5', daysToKeepStr: '', numToKeepStr: '5')
   }
 
-  def remote = [:]
-  remote.name = 'silverflame_app'
-  remote.host = 'silverflame_app'
-  remote.user = 'node'
-  remote.password = 'P@ssw0rd'
-  remote.allowAnyHosts = true
-
   stages {
     stage('Build & Test') {
       when {
@@ -31,12 +24,21 @@ pipeline {
       }
       
       steps {
-        sshPut remote: remote, from: "./public", into: "."
-        sshPut remote: remote, from: "./.next/standalone/*", into: "."
-        sshCommand remote: remote, command: "mkdir .next"
-        sshPut remote: remote, from: "./.next/static", into: "./.next"
+        script {
+          def remote = [:]
+          remote.name = 'silverflame_app'
+          remote.host = 'silverflame_app'
+          remote.user = 'node'
+          remote.password = 'P@ssw0rd'
+          remote.allowAnyHosts = true
+    
+          sshPut remote: remote, from: "./public", into: "."
+          sshPut remote: remote, from: "./.next/standalone/*", into: "."
+          sshCommand remote: remote, command: "mkdir .next"
+          sshPut remote: remote, from: "./.next/static", into: "./.next"
 
-        sshCommand remote: remote, command: "pm2-runtime start node -- /home/node/app/server.js"
+          sshCommand remote: remote, command: "pm2-runtime start node -- /home/node/app/server.js"
+        }
 
         // withCredentials([usernamePassword(credentialsId: 'silverflame_app', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
         //   sh "scp -r ./public $USERNAME@silverflame_app:/home/node/app"
