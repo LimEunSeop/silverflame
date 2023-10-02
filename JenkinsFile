@@ -26,8 +26,8 @@ pipeline {
       steps {
         script {
           def remote = [:]
-          remote.name = 'silverflame_app'
-          remote.host = 'silverflame_app'
+          remote.name = 'silverflame_appa'
+          remote.host = 'silverflame_appa'
           remote.user = 'node'
           remote.password = 'P@ssw0rd'
           remote.allowAnyHosts = true
