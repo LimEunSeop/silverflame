@@ -50,8 +50,7 @@ pipeline {
         // }
         sshagent(credentials: ['silverflame_app']) {
           sh 'scp -r ./public node@silverflame_app:./app'
-          sh 'scp -r ./.next/standalone/* node@silverflame_app:./app/'
-          sh 'scp -r ./.next/standalone/.* node@silverflame_app:./app/'
+          sh 'scp -r ./.next/standalone/\. node@silverflame_app:./app/'
           sh 'ssh node@silverflame_app "mkdir -p ./app/.next"'
           sh 'scp -r ./.next/static node@silverflame_app:./app/.next'
 
