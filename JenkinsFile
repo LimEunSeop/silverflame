@@ -24,21 +24,21 @@ pipeline {
       }
       
       steps {
-        script {
-          def remote = [:]
-          remote.name = 'silverflame_app'
-          remote.host = 'silverflame_app'
-          remote.user = 'node'
-          remote.password = 'P@ssw0rd'
-          remote.allowAnyHosts = true
+        // script {
+        //   def remote = [:]
+        //   remote.name = 'silverflame_app'
+        //   remote.host = 'silverflame_app'
+        //   remote.user = 'node'
+        //   remote.password = 'P@ssw0rd'
+        //   remote.allowAnyHosts = true
     
-          sshPut remote: remote, from: "./public", into: "."
-          sshPut remote: remote, from: "./.next/standalone/*", into: "."
-          sshCommand remote: remote, command: "mkdir .next"
-          sshPut remote: remote, from: "./.next/static", into: "./.next"
+        //   sshPut remote: remote, from: "./public", into: "."
+        //   sshPut remote: remote, from: "./.next/standalone/*", into: "."
+        //   sshCommand remote: remote, command: "mkdir .next"
+        //   sshPut remote: remote, from: "./.next/static", into: "./.next"
 
-          sshCommand remote: remote, command: "pm2-runtime start node -- /home/node/app/server.js"
-        }
+        //   sshCommand remote: remote, command: "pm2-runtime start node -- /home/node/app/server.js"
+        // }
 
         // withCredentials([usernamePassword(credentialsId: 'silverflame_app', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
         //   sh "scp -r ./public $USERNAME@silverflame_app:/home/node/app"
@@ -48,14 +48,14 @@ pipeline {
 
         //   sh "ssh $USERNAME@silverflame_app 'pm2-runtime start node -- /home/node/app/server.js'"
         // }
-        // sshagent(credentials: ['silverflame_app']) {
-        //   sh 'scp -r ./public node@silverflame_app:/home/node/app'
-        //   sh 'scp -r ./.next/standalone/* node@silverflame_app:/home/node/app'
-        //   sh 'ssh node@silverflame_app "mkdir /home/node/app/.next"'
-        //   sh 'scp -r ./.next/static node@silverflame_app:/home/node/app/.next'
+        sshagent(credentials: ['silverflame_app']) {
+          sh 'scp -r ./public node@silverflame_app:./app'
+          sh 'scp -r ./.next/standalone/* node@silverflame_app:./app'
+          sh 'ssh node@silverflame_app "mkdir ./app/.next"'
+          sh 'scp -r ./.next/static node@silverflame_app:./app/.next'
 
-        //   sh 'ssh node@silverflame_app "pm2-runtime start node -- /home/node/app/server.js"'
-        // }
+          sh 'ssh node@silverflame_app "pm2-runtime start node -- ./app/server.js"'
+        }
       }
     }
   }
