@@ -49,12 +49,12 @@ pipeline {
         //   sh "ssh $USERNAME@silverflame_app 'pm2-runtime start node -- /home/node/app/server.js'"
         // }
         sshagent(credentials: ['silverflame_app']) {
-          sh 'scp -r ./public node@silverflame_app:./app'
-          sh 'scp -r ./.next/standalone/* node@silverflame_app:./app'
-          sh 'ssh node@silverflame_app "mkdir ./app/.next"'
-          sh 'scp -r ./.next/static node@silverflame_app:./app/.next'
+          sh 'scp -o StrictHostKeyChecking=no -r ./public node@silverflame_app:./app'
+          sh 'scp -o StrictHostKeyChecking=no -r ./.next/standalone/* node@silverflame_app:./app'
+          sh 'ssh -vvv -o StrictHostKeyChecking=no node@silverflame_app "mkdir ./app/.next"'
+          sh 'scp -o StrictHostKeyChecking=no -r ./.next/static node@silverflame_app:./app/.next'
 
-          sh 'ssh node@silverflame_app "pm2-runtime start node -- ./app/server.js"'
+          sh 'ssh -vvv -o StrictHostKeyChecking=no node@silverflame_app "pm2-runtime start node -- ./app/server.js"'
         }
       }
     }
