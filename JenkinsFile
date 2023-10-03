@@ -55,7 +55,7 @@ pipeline {
           sh 'ssh -o "StrictHostKeyChecking=no" node@silverflame_app "mkdir -p ./app/.next"'
           sh 'scp -o "StrictHostKeyChecking=no" -r ./.next/static node@silverflame_app:./app/.next'
 
-          sh 'ssh -o "StrictHostKeyChecking=no" node@silverflame_app "pm2-runtime reload silverflame_app"'
+          sh 'ssh -o "StrictHostKeyChecking=no" node@silverflame_app "pm2 reload silverflame_app"'
         }
       }
     }
