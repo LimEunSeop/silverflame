@@ -4,6 +4,7 @@ import './globals.css'
 import localFont from 'next/font/local'
 import Script from 'next/script'
 import { ChangeEventHandler, useEffect } from 'react'
+import { LayoutProps } from '../.next/types/app/layout'
 
 const pretendard = localFont({
   //! 모듈 위치 바뀜 주의. import문의 규칙을 따를수는 없는걸까?
@@ -12,7 +13,7 @@ const pretendard = localFont({
   display: 'swap',
 })
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({ children }: LayoutProps) {
   const toggleTheme: ChangeEventHandler<HTMLInputElement> = (e) => {
     const checked = e.target.checked
 
