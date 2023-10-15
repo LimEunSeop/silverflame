@@ -39,7 +39,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <input
           ref={toggleThemeRef}
           type="checkbox"
-          className="toggle toggle-warning absolute top-2 right-2"
+          className="toggle toggle-warning absolute right-2 top-2"
           onChange={toggleTheme}
         />
         {children}
