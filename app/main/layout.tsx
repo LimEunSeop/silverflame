@@ -1,7 +1,7 @@
 import MainLayout from '@/domain/main/components/layouts/MainLayout'
-import { LayoutProps } from '../../.next/types/app/main/layout'
+import { ReactNode } from 'react'
 
-const layout = ({ children }: LayoutProps) => {
+const layout = ({ children }: { children: ReactNode }) => {
   return <MainLayout>{children}</MainLayout>
 }
 export default layout

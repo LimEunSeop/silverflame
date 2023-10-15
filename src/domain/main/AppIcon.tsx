@@ -8,14 +8,14 @@ type Props = {
 
 const AppIcon = ({ app: { id, name, image, url } }: Props) => {
   return (
-    <Link key={id} href={url} className="btn w-28 h-28">
+    <a key={id} href={url} className="btn w-28 h-28">
       <div className="avatar">
         <div className="w-24 rounded-full">
           {/* <img src="/images/stock/photo-1534528741775-53994a69daeb.jpg" /> */}
           <Image src={image} alt={name} />
         </div>
       </div>
-    </Link>
+    </a>
   )
 }
 export default AppIcon

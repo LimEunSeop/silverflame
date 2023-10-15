@@ -3,8 +3,7 @@
 import './globals.css'
 import localFont from 'next/font/local'
 import Script from 'next/script'
-import { ChangeEventHandler, useEffect } from 'react'
-import { LayoutProps } from '../.next/types/app/layout'
+import { ChangeEventHandler, ReactNode, useEffect, useRef } from 'react'
 
 const pretendard = localFont({
   //! 모듈 위치 바뀜 주의. import문의 규칙을 따를수는 없는걸까?
@@ -13,7 +12,9 @@ const pretendard = localFont({
   display: 'swap',
 })
 
-export default function RootLayout({ children }: LayoutProps) {
+export default function RootLayout({ children }: { children: ReactNode }) {
+  const toggleThemeRef = useRef<HTMLInputElement>(null)
+
   const toggleTheme: ChangeEventHandler<HTMLInputElement> = (e) => {
     const checked = e.target.checked
 
@@ -24,10 +25,23 @@ export default function RootLayout({ children }: LayoutProps) {
     }
   }
 
+  useEffect(() => {
+    if (document.documentElement.dataset.theme === 'light') {
+      toggleThemeRef.current!.checked = true
+    } else {
+      toggleThemeRef.current!.checked = false
+    }
+  }, [])
+
   return (
     <html lang="ko" className={`${pretendard.variable} font-sans`}>
       <body>
-        <input type="checkbox" className="toggle toggle-warning absolute top-2 right-2" onChange={toggleTheme} />
+        <input
+          ref={toggleThemeRef}
+          type="checkbox"
+          className="toggle toggle-warning absolute top-2 right-2"
+          onChange={toggleTheme}
+        />
         {children}
         {/* appDir 에서는 app/layout.tsx 에 넣어도 된다고 함. See: https://nextjs.org/docs/app/api-reference/components/script#beforeinteractive */}
         <Script
@@ -39,6 +53,8 @@ export default function RootLayout({ children }: LayoutProps) {
             window.matchMedia('(prefers-color-scheme: dark)').matches
           ) {
             document.documentElement.dataset.theme = 'dark'
+          } else {
+            document.documentElement.dataset.theme = 'light'
           }
         `,
           }}
