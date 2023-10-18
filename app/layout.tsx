@@ -5,6 +5,9 @@ import localFont from 'next/font/local'
 import Script from 'next/script'
 import { ChangeEventHandler, ReactNode, useEffect, useRef } from 'react'
 
+const THEME_LIGHT = 'silverflame-light'
+const THEME_DARK = 'silverflame-dark'
+
 const pretendard = localFont({
   //! 모듈 위치 바뀜 주의. import문의 규칙을 따를수는 없는걸까?
   src: '../node_modules/pretendard/dist/public/variable/PretendardVariable.ttf',
@@ -19,14 +22,14 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     const checked = e.target.checked
 
     if (checked) {
-      document.documentElement.dataset.theme = 'light'
+      document.documentElement.dataset.theme = THEME_LIGHT
     } else {
-      document.documentElement.dataset.theme = 'dark'
+      document.documentElement.dataset.theme = THEME_DARK
     }
   }
 
   useEffect(() => {
-    if (document.documentElement.dataset.theme === 'light') {
+    if (document.documentElement.dataset.theme === THEME_LIGHT) {
       toggleThemeRef.current!.checked = true
     } else {
       toggleThemeRef.current!.checked = false
@@ -39,7 +42,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <input
           ref={toggleThemeRef}
           type="checkbox"
-          className="toggle toggle-warning absolute right-2 top-2"
+          className="toggle toggle-primary absolute right-2 top-2"
           onChange={toggleTheme}
         />
         {children}
@@ -52,9 +55,9 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           if (
             window.matchMedia('(prefers-color-scheme: dark)').matches
           ) {
-            document.documentElement.dataset.theme = 'dark'
+            document.documentElement.dataset.theme = '${THEME_DARK}'
           } else {
-            document.documentElement.dataset.theme = 'light'
+            document.documentElement.dataset.theme = '${THEME_LIGHT}'
           }
         `,
           }}
