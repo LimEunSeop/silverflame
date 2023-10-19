@@ -41,3 +41,6 @@ bench/nested-deps/components/**/*
 
 **/convex/_generated/**
 **/.tina/__generated__/**
+
+# my custom
+prisma/dev.db

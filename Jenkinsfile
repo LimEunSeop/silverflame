@@ -11,10 +11,15 @@ pipeline {
         branch 'main'
       }
 
+      environment {
+        DATABASE_URL = credentials('env_prod_database_url')
+      }
+
       steps {
         nodejs(nodeJSInstallationName: 'node-lts') {
           sh 'npm ci && npm run build'
           sh 'npm run test:ci -- --passWithNoTests'
+          sh 'npx prisma migrate deploy'
         }
       }
     }
