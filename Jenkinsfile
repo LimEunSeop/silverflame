@@ -6,7 +6,19 @@ pipeline {
   }
 
   stages {
-    stage('Build & Test') {
+    stage('TEST - DEV') {
+      when {
+        branch 'develop'
+      }
+
+      steps {
+        nodejs(nodeJSInstallationName: 'node-lts') {
+          sh 'npm ci'
+          sh 'npm run test:ci -- --passWithNoTests' // 프로덕션 배포때는 테스트 하지 말자
+        }
+      }
+    }
+    stage('Build - PROD') {
       when {
         branch 'main'
       }
@@ -17,13 +29,13 @@ pipeline {
 
       steps {
         nodejs(nodeJSInstallationName: 'node-lts') {
-          sh 'npm ci && npm run build'
-          sh 'npm run test:ci -- --passWithNoTests'
+          sh 'npm ci'
           sh 'npx prisma migrate deploy'
+          sh 'npm run build'
         }
       }
     }
-    stage('Deploy') {
+    stage('Deploy - PROD') {
       when {
         branch 'main'
       }
