@@ -29,8 +29,8 @@ pipeline {
 
       steps {
         nodejs(nodeJSInstallationName: 'node-lts') {
-          sh 'echo > .env.local'
-          sh 'echo DATABASE_URL=${DATABASE_URL} >> .env.local'
+          sh 'echo > .env.production'
+          sh 'echo DATABASE_URL=${DATABASE_URL} >> .env.production'
 
           sh 'npm ci'
           sh 'npx prisma migrate deploy'
@@ -69,12 +69,9 @@ pipeline {
         //   sh "ssh $USERNAME@silverflame_app 'pm2-runtime start node -- /home/node/app/server.js'"
         // }
         sshagent(credentials: ['silverflame_app']) {
-          // sh 'ssh -o "StrictHostKeyChecking=no" root@silverflame_app "rm -rf ./app"'
-          // sh 'scp -o "StrictHostKeyChecking=no" -r ./.next/standalone root@silverflame_app:./app'
-          // sh 'scp -o "StrictHostKeyChecking=no" -r ./public root@silverflame_app:./app'
-          sh 'scp -o "StrictHostKeyChecking=no" -r ./public root@silverflame_app:./app'
           sh 'scp -o "StrictHostKeyChecking=no" -r ./.next/standalone/* root@silverflame_app:./app/'
-          sh 'scp -o "StrictHostKeyChecking=no" -r ./.next/standalone/..* root@silverflame_app:./app/'
+          sh 'scp -o "StrictHostKeyChecking=no" -r ./.next/standalone/.[!.]* root@silverflame_app:./app/'
+          sh 'scp -o "StrictHostKeyChecking=no" -r ./public root@silverflame_app:./app'
           sh 'scp -o "StrictHostKeyChecking=no" -r ./.next/static root@silverflame_app:./app/.next'
 
           // sharp 실행: https://nextjs.org/docs/messages/sharp-missing-in-production
