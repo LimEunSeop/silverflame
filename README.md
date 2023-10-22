@@ -23,4 +23,6 @@ URL: https://silverflame.dev
 
 ## Todo
 
-- domain 이후의 디렉터리 구조 어떻게 해야될까? utils, components 등은 반복시키지만, 부분화면에 대한 것은?? 다시 domain 이라고 쓰기엔 디렉터리 구조가 뭔가 직관적이진 않아보이는데, 그게 최선인 것일까?
+- 아래와 같은 에러를 해결해보자. .env 를 설정하고 명령어 실행시 환경변수를 세팅해줘도 해결되지 않았다. 이거..해결해야 한다 꼭
+  - error: 'sharp' is required to be installed in standalone mode for the image optimization to function correctly. Read more at: https://nextjs.org/docs/messages/sharp-missing-in-production
+- ~~domain 이후의 디렉터리 구조 어떻게 해야될까? utils, components 등은 반복시키지만, 부분화면에 대한 것은?? 다시 domain 이라고 쓰기엔 디렉터리 구조가 뭔가 직관적이진 않아보이는데, 그게 최선인 것일까?~~ => 최상위 도메인에서는 도메인 전반적으로 쓰이는 것들을 폴더별로 묶는다. 하위도메인에서부터 또한 recursive 하게 동일한 폴더구조를 갖도록 한다. 단, 앞에 @를 붙여 보기좋게 상단에 정렬되도록 하고, 하위도메인을 나타내는 폴더는 @를 붙이지 않는 형태로 이 구조를 무한반복한다.
