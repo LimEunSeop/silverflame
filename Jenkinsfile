@@ -68,12 +68,12 @@ pipeline {
         //   sh "ssh $USERNAME@silverflame_app 'pm2-runtime start node -- /home/node/app/server.js'"
         // }
         sshagent(credentials: ['silverflame_app']) {
-          sh 'ssh -o "StrictHostKeyChecking=no" root@silverflame_app "rm -rf ./app"'
-          sh 'scp -o "StrictHostKeyChecking=no" -r ./.next/standalone root@silverflame_app:./app'
-          sh 'scp -o "StrictHostKeyChecking=no" -r ./public root@silverflame_app:./app'
+          // sh 'ssh -o "StrictHostKeyChecking=no" root@silverflame_app "rm -rf ./app"'
+          // sh 'scp -o "StrictHostKeyChecking=no" -r ./.next/standalone root@silverflame_app:./app'
           // sh 'scp -o "StrictHostKeyChecking=no" -r ./public root@silverflame_app:./app'
-          // sh 'scp -o "StrictHostKeyChecking=no" -r ./.next/standalone/* root@silverflame_app:./app/'
-          // sh 'scp -o "StrictHostKeyChecking=no" -r ./.next/standalone/.next root@silverflame_app:./app/'
+          sh 'scp -o "StrictHostKeyChecking=no" -r ./public root@silverflame_app:./app'
+          sh 'scp -o "StrictHostKeyChecking=no" -r ./.next/standalone/* root@silverflame_app:./app/'
+          sh 'scp -o "StrictHostKeyChecking=no" -r ./.next/standalone/.[!.]* root@silverflame_app:./app/'
           // sh 'ssh -o "StrictHostKeyChecking=no" root@silverflame_app "mkdir -p ./app/.next"'
           sh 'scp -o "StrictHostKeyChecking=no" -r ./.next/static root@silverflame_app:./app/.next'
 
