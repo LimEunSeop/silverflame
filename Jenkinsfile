@@ -25,7 +25,6 @@ pipeline {
 
       environment {
         DATABASE_URL = credentials('env_prod_database_url')
-        NEXT_SHARP_PATH = '/tmp/node_modules/sharp' // https://nextjs.org/docs/messages/sharp-missing-in-production
       }
 
       steps {
@@ -73,7 +72,8 @@ pipeline {
           sh 'ssh -o "StrictHostKeyChecking=no" root@silverflame_app "mkdir -p ./app/.next"'
           sh 'scp -o "StrictHostKeyChecking=no" -r ./.next/static root@silverflame_app:./app/.next'
 
-          sh 'ssh -o "StrictHostKeyChecking=no" root@silverflame_app "pm2 reload silverflame_app"'
+          // sharp 실행: https://nextjs.org/docs/messages/sharp-missing-in-production
+          sh 'ssh -o "StrictHostKeyChecking=no" root@silverflame_app "NEXT_SHARP_PATH=./app/node_modules/sharp pm2 reload silverflame_app"'
         }
       }
     }
