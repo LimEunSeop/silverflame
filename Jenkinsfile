@@ -25,6 +25,7 @@ pipeline {
 
       environment {
         DATABASE_URL = credentials('env_prod_database_url')
+        NEXT_SHARP_PATH = './node_modules/sharp' // https://nextjs.org/docs/messages/sharp-missing-in-production#why-this-error-occurred
       }
 
       steps {
