@@ -29,6 +29,7 @@ pipeline {
 
       steps {
         nodejs(nodeJSInstallationName: 'node-lts') {
+          sh 'echo > .env.local'
           sh 'echo DATABASE_URL=${DATABASE_URL} >> .env.local'
 
           sh 'npm ci'
@@ -73,8 +74,7 @@ pipeline {
           // sh 'scp -o "StrictHostKeyChecking=no" -r ./public root@silverflame_app:./app'
           sh 'scp -o "StrictHostKeyChecking=no" -r ./public root@silverflame_app:./app'
           sh 'scp -o "StrictHostKeyChecking=no" -r ./.next/standalone/* root@silverflame_app:./app/'
-          sh 'scp -o "StrictHostKeyChecking=no" -r ./.next/standalone/.[!.]* root@silverflame_app:./app/'
-          // sh 'ssh -o "StrictHostKeyChecking=no" root@silverflame_app "mkdir -p ./app/.next"'
+          sh 'scp -o "StrictHostKeyChecking=no" -r ./.next/standalone/.* root@silverflame_app:./app/'
           sh 'scp -o "StrictHostKeyChecking=no" -r ./.next/static root@silverflame_app:./app/.next'
 
           // sharp 실행: https://nextjs.org/docs/messages/sharp-missing-in-production
