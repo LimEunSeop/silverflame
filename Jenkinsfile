@@ -29,6 +29,8 @@ pipeline {
 
       steps {
         nodejs(nodeJSInstallationName: 'node-lts') {
+          sh 'echo DATABASE_URL=${DATABASE_URL} >> .env.local'
+
           sh 'npm ci'
           sh 'npx prisma migrate deploy'
           sh 'npm run build'
@@ -73,7 +75,7 @@ pipeline {
           sh 'scp -o "StrictHostKeyChecking=no" -r ./.next/static root@silverflame_app:./app/.next'
 
           // sharp 실행: https://nextjs.org/docs/messages/sharp-missing-in-production
-          sh 'ssh -o "StrictHostKeyChecking=no" root@silverflame_app "NEXT_SHARP_PATH=./app/node_modules/sharp pm2 reload silverflame_app"'
+          sh 'ssh -o "StrictHostKeyChecking=no" root@silverflame_app "pm2 reload silverflame_app"'
         }
       }
     }
