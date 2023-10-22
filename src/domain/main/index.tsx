@@ -1,4 +1,4 @@
-import getAppList from './utils/getAppList'
+import getAppList from './@utils/getAppList'
 import Image from 'next/image'
 import AppIcon from './AppIcon'
 

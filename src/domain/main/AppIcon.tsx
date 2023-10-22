@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { App } from './utils/getAppList'
+import { App } from './@utils/getAppList'
 import Image from 'next/image'
 
 type Props = {
