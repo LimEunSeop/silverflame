@@ -74,7 +74,7 @@ pipeline {
           // sh 'scp -o "StrictHostKeyChecking=no" -r ./public root@silverflame_app:./app'
           sh 'scp -o "StrictHostKeyChecking=no" -r ./public root@silverflame_app:./app'
           sh 'scp -o "StrictHostKeyChecking=no" -r ./.next/standalone/* root@silverflame_app:./app/'
-          sh 'scp -o "StrictHostKeyChecking=no" -r ./.next/standalone/.(.)* root@silverflame_app:./app/'
+          sh 'scp -o "StrictHostKeyChecking=no" -r ./.next/standalone/.[]* root@silverflame_app:./app/'
           sh 'scp -o "StrictHostKeyChecking=no" -r ./.next/static root@silverflame_app:./app/.next'
 
           // sharp 실행: https://nextjs.org/docs/messages/sharp-missing-in-production
