@@ -1,15 +1,16 @@
 import ToggleTheme from '@/components/inputs/ToggleTheme'
+import HomeLink from '@/components/links/HomeLink'
 import Image from 'next/image'
 import Link from 'next/link'
 import { ReactNode } from 'react'
 
 const MainLayout = ({ children }: { children: ReactNode }) => {
   return (
-    <div className="p-4">
-      <header className="navbar rounded-box bg-base-100 shadow-xl">
+    <div className="flex min-h-screen flex-col">
+      <header className="navbar bg-base-100 shadow-xl">
         <div className="navbar-start">
-          <div className="dropdown">
-            <label tabIndex={0} className="btn btn-ghost lg:hidden">
+          <nav className="dropdown lg:hidden">
+            <label tabIndex={0} className="btn btn-ghost">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-5 w-5"
@@ -25,63 +26,72 @@ const MainLayout = ({ children }: { children: ReactNode }) => {
               className="menu dropdown-content rounded-box menu-sm z-[1] mt-3 w-52 bg-base-100 p-2 shadow"
             >
               <li>
-                <a>Item 1</a>
+                <a>Intro</a>
               </li>
               <li>
-                <a>Parent</a>
+                <a>Experiences</a>
                 <ul className="p-2">
                   <li>
-                    <a>Submenu 1</a>
+                    <a>Portfolio</a>
                   </li>
                   <li>
-                    <a>Submenu 2</a>
+                    <a>Codes</a>
                   </li>
                 </ul>
               </li>
               <li>
-                <a>Item 3</a>
+                <a>Resume</a>
+              </li>
+              <li>
+                <a>Contact</a>
               </li>
             </ul>
-          </div>
-          <Link href="/portfolio" className="btn btn-ghost flex items-center gap-3 normal-case">
-            <Image
-              src="/logo-icononly-nobuffer.png"
-              width={29}
-              height={40}
-              alt="로고"
-              className="object-contain object-center"
-            />
-            <span className="text-sm lg:text-lg">Portfolio</span>
+          </nav>
+          <Link href="/portfolio" className="btn btn-ghost flex items-center gap-2 normal-case lg:gap-3">
+            <div className="relative aspect-[1/1.38] w-6 lg:w-7">
+              <Image
+                src="/logo-icononly-nobuffer.png"
+                fill
+                sizes="100%"
+                alt="로고"
+                className="object-contain object-center"
+              />
+            </div>
+            <span className="text-sm lg:text-lg">Careers</span>
           </Link>
         </div>
-        <div className="navbar-center hidden lg:flex">
+        <nav className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
             <li>
-              <a>Item 1</a>
+              <a>Intro</a>
             </li>
             <li tabIndex={0}>
               <details>
-                <summary>Parent</summary>
+                <summary>Experiences</summary>
                 <ul className="p-2">
                   <li>
-                    <a>Submenu 1</a>
+                    <a>Portfolio</a>
                   </li>
                   <li>
-                    <a>Submenu 2</a>
+                    <a>Codes</a>
                   </li>
                 </ul>
               </details>
             </li>
             <li>
-              <a>Item 3</a>
+              <a>Resume</a>
+            </li>
+            <li>
+              <a>Contact</a>
             </li>
           </ul>
-        </div>
+        </nav>
         <div className="navbar-end">
+          <HomeLink />
           <ToggleTheme />
         </div>
       </header>
-      <main className="grid min-h-screen place-items-center pt-20 md:container">{children}</main>
+      <main className="h-full md:container">{children}</main>
     </div>
   )
 }
