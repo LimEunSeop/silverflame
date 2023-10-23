@@ -24,6 +24,8 @@ pipeline {
       }
 
       environment {
+        NEXT_SHARP_PATH = '/var/jenkins_home/workspace/Silverflame_main/node_modules/sharp'
+        
         DATABASE_URL = credentials('env_prod_database_url')
       }
 
