@@ -17,7 +17,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="ko" className={`${pretendard.variable} font-sans`}>
       <body>
-        {children}
+        <div className="relative">{children}</div>
         {/* appDir 에서는 app/layout.tsx 에 넣어도 된다고 함. See: https://nextjs.org/docs/app/api-reference/components/script#beforeinteractive */}
         <Script
           id="script-init-theme"
