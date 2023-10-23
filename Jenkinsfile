@@ -32,8 +32,7 @@ pipeline {
           sh 'echo > .env.production'
           sh 'echo DATABASE_URL=${DATABASE_URL} >> .env.production'
 
-          sh 'npm ci --platform=linuxmusl --arch=x64'
-          // sh 'npm rebuild --platform=linuxmusl --arch=x64'
+          sh 'npm ci --platform=linuxmusl --arch=x64' // 배포가 되는 alpine linux 서버의 플랫폼 아키텍쳐. sharp 에러 해결
           sh 'npx prisma migrate deploy'
           sh 'npm run build'
         }
