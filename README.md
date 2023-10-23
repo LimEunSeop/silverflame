@@ -23,6 +23,8 @@ URL: https://silverflame.dev
 
 ## Todo
 
-- 아래와 같은 에러를 해결해보자. .env 를 설정하고 명령어 실행시 환경변수를 세팅해줘도 해결되지 않았다. 이거..해결해야 한다 꼭
-  - error: 'sharp' is required to be installed in standalone mode for the image optimization to function correctly. Read more at: https://nextjs.org/docs/messages/sharp-missing-in-production
+- CD 파이프라인에서 빌드 시 변경된 데이터베이스가 미리 필요하여 migration 후 빌드하도록 했다. 만약 빌드가 실패한다면 치명적인 배포오류가 발생하는데, 이 해결방법을 main 브랜치 병합 전 husky로 미리 빌드해보아 성공여부를 결정하는 것이었다. 더 효율적인 방법이 없을까? push 할때마다 빌드시간이 걸리는 비효율이 좀 발생한다.(이게 배포에 대한 고민의 기회를 좀 더 줄 수도 있다..)
+- ~~아래와 같은 에러를 해결해보자. .env 를 설정하고 명령어 실행시 환경변수를 세팅해줘도 해결되지 않았다. 이거..해결해야 한다 꼭~~
+  - ~~error: 'sharp' is required to be installed in standalone mode for the image optimization to function correctly. Read more at: https://nextjs.org/docs/messages/sharp-missing-in-production~~
+  - npm ci 시 프로덕션 플랫폼 옵션을 위해 해결하였다.
 - ~~domain 이후의 디렉터리 구조 어떻게 해야될까? utils, components 등은 반복시키지만, 부분화면에 대한 것은?? 다시 domain 이라고 쓰기엔 디렉터리 구조가 뭔가 직관적이진 않아보이는데, 그게 최선인 것일까?~~ => 최상위 도메인에서는 도메인 전반적으로 쓰이는 것들을 폴더별로 묶는다. 하위도메인에서부터 또한 recursive 하게 동일한 폴더구조를 갖도록 한다. 단, 앞에 @를 붙여 보기좋게 상단에 정렬되도록 하고, 하위도메인을 나타내는 폴더는 @를 붙이지 않는 형태로 이 구조를 무한반복한다.
