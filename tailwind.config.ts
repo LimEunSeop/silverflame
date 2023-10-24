@@ -12,7 +12,7 @@ const config: Config = {
       center: true,
     },
   },
-  plugins: [require('daisyui')],
+  plugins: [require('daisyui'), require('@tailwindcss/typography')],
   // Daisy UI dark모드 조건에 대응하기 위함: See: https://daisyui.com/docs/themes/#-2
   daisyui: {
     /**

@@ -5,7 +5,7 @@ import { ReactNode } from 'react'
 export default function MainLayout({ children }: { children: ReactNode }) {
   return (
     <div className="flex min-h-screen flex-col p-2">
-      <header className="flex items-center justify-end">
+      <header className="sticky top-0 flex items-center justify-end">
         <CareersLink />
         <ToggleTheme />
       </header>

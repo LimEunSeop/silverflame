@@ -5,6 +5,7 @@ import './globals.css'
 import localFont from 'next/font/local'
 import Script from 'next/script'
 import { ReactNode, useEffect, useRef } from 'react'
+import { PORTAL_ID } from '@/components/MyPortal'
 
 const pretendard = localFont({
   //! 모듈 위치 바뀜 주의. import문의 규칙을 따를수는 없는걸까?
@@ -18,6 +19,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     <html lang="ko" className={`${pretendard.variable} font-sans`}>
       <body>
         <div className="relative">{children}</div>
+        <div id={PORTAL_ID}></div>
         {/* appDir 에서는 app/layout.tsx 에 넣어도 된다고 함. See: https://nextjs.org/docs/app/api-reference/components/script#beforeinteractive */}
         <Script
           id="script-init-theme"
