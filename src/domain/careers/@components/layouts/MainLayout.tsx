@@ -26,28 +26,28 @@ const MainLayout = ({ children }: { children: ReactNode }) => {
               className="menu dropdown-content rounded-box menu-sm z-[1] mt-3 w-52 bg-base-100 p-2 shadow"
             >
               <li>
-                <a>Intro</a>
+                <Link href="/careers/intro">Intro</Link>
               </li>
               <li>
                 <a>Experiences</a>
                 <ul className="p-2">
                   <li>
-                    <a>Portfolio</a>
+                    <Link href="/careers/experiences/portfolio">Portfolio</Link>
                   </li>
                   <li>
-                    <a>Codes</a>
+                    <Link href="/careers/experiences/codes">Codes</Link>
                   </li>
                 </ul>
               </li>
               <li>
-                <a>Resume</a>
+                <Link href="/careers/resume">Resume</Link>
               </li>
               <li>
-                <a>Contact</a>
+                <Link href="/careers/contact">Contact</Link>
               </li>
             </ul>
           </nav>
-          <Link href="/portfolio" className="btn btn-ghost flex items-center gap-2 normal-case lg:gap-3">
+          <Link href="/careers" className="btn btn-ghost flex items-center gap-2 normal-case lg:gap-3">
             <div className="relative aspect-[1/1.38] w-6 lg:w-7">
               <Image
                 src="/logo-icononly-nobuffer.png"
@@ -63,26 +63,26 @@ const MainLayout = ({ children }: { children: ReactNode }) => {
         <nav className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
             <li>
-              <a>Intro</a>
+              <Link href="/careers/intro">Intro</Link>
             </li>
             <li tabIndex={0}>
               <details>
                 <summary>Experiences</summary>
                 <ul className="p-2">
                   <li>
-                    <a>Portfolio</a>
+                    <Link href="/careers/experiences/portfolio">Portfolio</Link>
                   </li>
                   <li>
-                    <a>Codes</a>
+                    <Link href="/careers/experiences/codes">Codes</Link>
                   </li>
                 </ul>
               </details>
             </li>
             <li>
-              <a>Resume</a>
+              <Link href="/careers/resume">Resume</Link>
             </li>
             <li>
-              <a>Contact</a>
+              <Link href="/careers/contact">Contact</Link>
             </li>
           </ul>
         </nav>

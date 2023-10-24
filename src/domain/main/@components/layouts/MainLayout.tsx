@@ -1,13 +1,15 @@
 import ToggleTheme from '@/components/inputs/ToggleTheme'
+import CareersLink from '@/components/links/CareersLink'
 import { ReactNode } from 'react'
 
 export default function MainLayout({ children }: { children: ReactNode }) {
   return (
-    <>
-      <header className="absolute left-0 top-0 flex h-20 w-full items-center justify-end px-10">
+    <div className="flex min-h-screen flex-col p-2">
+      <header className="flex items-center justify-end">
+        <CareersLink />
         <ToggleTheme />
       </header>
-      <main className="grid min-h-screen place-items-center pt-20 md:container">{children}</main>
-    </>
+      <main className="grid h-full place-items-center md:container">{children}</main>
+    </div>
   )
 }
