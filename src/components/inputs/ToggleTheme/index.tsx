@@ -8,21 +8,47 @@ export const THEME_DARK = 'silverflame-dark'
 const ToggleTheme = () => {
   const toggleThemeRef = useRef<HTMLInputElement>(null)
 
-  const toggleTheme: ChangeEventHandler<HTMLInputElement> = (e) => {
-    const checked = e.target.checked
-
-    if (checked) {
-      document.documentElement.dataset.theme = THEME_LIGHT
-    } else {
-      document.documentElement.dataset.theme = THEME_DARK
+  const setToggleStateByTheme = (theme: string) => {
+    switch (theme) {
+      case THEME_LIGHT:
+        toggleThemeRef.current!.checked = true
+        break
+      case THEME_DARK:
+        toggleThemeRef.current!.checked = false
+        break
+      default:
+        toggleThemeRef.current!.checked = true
     }
   }
 
+  const setTheme = (theme: string) => {
+    document.documentElement.dataset.theme = theme
+  }
+
+  const toggleTheme: ChangeEventHandler<HTMLInputElement> = (e) => {
+    const checked = e.target.checked
+
+    const newTheme = checked ? THEME_LIGHT : THEME_DARK
+    setTheme(newTheme)
+  }
+
   useEffect(() => {
-    if (document.documentElement.dataset.theme === THEME_LIGHT) {
-      toggleThemeRef.current!.checked = true
-    } else {
-      toggleThemeRef.current!.checked = false
+    setToggleStateByTheme(document.documentElement.dataset.theme ?? THEME_LIGHT)
+
+    const colorSchemePreferenceChangeEventHandler = (event: MediaQueryListEvent) => {
+      const newTheme = event.matches ? THEME_DARK : THEME_LIGHT
+      setToggleStateByTheme(newTheme)
+      setTheme(newTheme)
+    }
+
+    window
+      .matchMedia('(prefers-color-scheme: dark)')
+      .addEventListener('change', colorSchemePreferenceChangeEventHandler)
+
+    return () => {
+      window
+        .matchMedia('(prefers-color-scheme: dark)')
+        .removeEventListener('change', colorSchemePreferenceChangeEventHandler)
     }
   }, [])
 
