@@ -27,7 +27,7 @@ const CareersResume = async () => {
   }).then((res) => res.text())
 
   return (
-    <div className="prose-sm md:prose-base prose mx-auto">
+    <div className="prose prose-sm mx-auto md:prose-base">
       <Markdown
         skipHtml={false}
         rehypePlugins={[
