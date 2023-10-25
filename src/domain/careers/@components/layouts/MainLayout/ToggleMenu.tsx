@@ -52,7 +52,7 @@ const ToggleMenu = () => {
                   </Link>
                 </li>
                 <li>
-                  <Link href="/careers/experiences/portfolio" onClick={handleMenuClicked}>
+                  <Link href="/careers/experiences/codes" onClick={handleMenuClicked}>
                     Codes
                   </Link>
                 </li>
