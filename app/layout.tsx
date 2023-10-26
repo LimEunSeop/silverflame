@@ -14,14 +14,31 @@ const pretendard = localFont({
   display: 'swap',
 })
 
+const initializeThemeScript = `
+if (
+  window.matchMedia('(prefers-color-scheme: dark)').matches
+) {
+  document.documentElement.dataset.theme = '${THEME_DARK}'
+} else {
+  document.documentElement.dataset.theme = '${THEME_LIGHT}'
+}
+`
+
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="ko" className={`${pretendard.variable} font-sans`}>
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: initializeThemeScript,
+          }}
+        />
+      </head>
       <body>
         <div className="relative">{children}</div>
         <div id={PORTAL_ID}></div>
         {/* appDir 에서는 app/layout.tsx 에 넣어도 된다고 함. See: https://nextjs.org/docs/app/api-reference/components/script#beforeinteractive */}
-        <Script
+        {/* <Script
           id="script-init-theme"
           strategy="beforeInteractive"
           dangerouslySetInnerHTML={{
@@ -35,7 +52,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           }
         `,
           }}
-        />
+        /> */}
       </body>
     </html>
   )
