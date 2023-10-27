@@ -2,7 +2,7 @@
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
 generator client {
-  provider = "prisma-client-js"
+  provider      = "prisma-client-js"
   binaryTargets = ["native", "linux-musl-openssl-3.0.x"] // 프로덕션 아키텍쳐. 프로덕션 에러 방지
 }
 
@@ -12,8 +12,31 @@ datasource db {
 }
 
 model App {
-  id    Int     @id @default(autoincrement())
-  name  String  @unique
+  id    Int    @id @default(autoincrement())
+  name  String @unique
   image String
   url   String
+}
+
+model Project {
+  id            Int            @id @default(autoincrement())
+  name          String         @unique
+  description   String
+  siteUrl       String
+  githubUrl     String?
+  images        ProjectImage[]
+}
+
+model ProjectImage {
+  id        Int     @id @default(autoincrement())
+  url       String
+  altText   String
+  platform  Platform
+  project   Project @relation(fields: [projectId], references: [id])
+  projectId Int
+}
+
+enum Platform {
+  DESKTOP
+  MOBILE
 }
