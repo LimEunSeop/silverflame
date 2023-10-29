@@ -32,7 +32,7 @@ const ToggleMenu = () => {
 
       <MyPortal>
         <input id="drawer" type="checkbox" className="drawer-toggle" checked={opened} onChange={handleInputChanged} />
-        <div className="drawer-side">
+        <div className="drawer-side z-20">
           <label htmlFor="drawer" aria-label="close sidebar" className="drawer-overlay"></label>
           <ul className="menu min-h-full w-80 bg-base-200 p-4">
             {/* Sidebar content here */}
