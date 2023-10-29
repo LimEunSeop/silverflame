@@ -1,45 +1,5 @@
 const { PrismaClient } = require('@prisma/client')
 
-const prisma = new PrismaClient()
-
-async function main() {
-  console.log('== App Seeding ==')
-  const jenkins = await prisma.app.upsert({
-    where: { name: jenkinsData.name },
-    update: jenkinsData,
-    create: jenkinsData,
-  })
-  const transmission = await prisma.app.upsert({
-    where: { name: transmissionData.name },
-    update: transmissionData,
-    create: transmissionData,
-  })
-
-  console.log('== Project Seeding ==')
-  const dailyByte = await prisma.project.upsert({
-    where: { name: dailyByteData.name },
-    update: dailyByteData,
-    create: dailyByteData,
-  })
-  const dailyByteBiz = await prisma.project.upsert({
-    where: { name: dailyByteBizData.name },
-    update: dailyByteBizData,
-    create: dailyByteBizData,
-  })
-
-  console.log({ jenkins, transmission, dailyByte, dailyByteBiz })
-}
-
-main()
-  .then(async () => {
-    await prisma.$disconnect()
-  })
-  .catch(async (e) => {
-    console.error(e)
-    await prisma.$disconnect()
-    process.exit(1)
-  })
-
 const jenkinsData = {
   name: 'Jenkins',
   image: '/images/app-icons/jenkins.svg',
@@ -193,3 +153,43 @@ const dailyByteBizData = {
     ],
   },
 }
+
+const prisma = new PrismaClient()
+
+async function main() {
+  console.log('== App Seeding ==')
+  const jenkins = await prisma.app.upsert({
+    where: { name: jenkinsData.name },
+    update: jenkinsData,
+    create: jenkinsData,
+  })
+  const transmission = await prisma.app.upsert({
+    where: { name: transmissionData.name },
+    update: transmissionData,
+    create: transmissionData,
+  })
+
+  console.log('== Project Seeding ==')
+  const dailyByte = await prisma.project.upsert({
+    where: { name: dailyByteData.name },
+    update: dailyByteData,
+    create: dailyByteData,
+  })
+  const dailyByteBiz = await prisma.project.upsert({
+    where: { name: dailyByteBizData.name },
+    update: dailyByteBizData,
+    create: dailyByteBizData,
+  })
+
+  console.log({ jenkins, transmission, dailyByte, dailyByteBiz })
+}
+
+main()
+  .then(async () => {
+    await prisma.$disconnect()
+  })
+  .catch(async (e) => {
+    console.error(e)
+    await prisma.$disconnect()
+    process.exit(1)
+  })
