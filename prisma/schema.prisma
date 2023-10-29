@@ -22,7 +22,7 @@ model Project {
   id            Int            @id @default(autoincrement())
   name          String         @unique
   description   String
-  siteUrl       String
+  siteUrl       String?
   githubUrl     String?
   images        ProjectImage[]
 }

@@ -1,3 +1,5 @@
+import GithubLink from '@/components/links/GithubLink'
+import WebsiteLink from '@/components/links/WebsiteLink'
 import { Project, ProjectImage } from '@prisma/client'
 import Image from 'next/image'
 
@@ -71,7 +73,10 @@ const Project = ({ project }: Props) => {
         <div>
           <h1 className="text-5xl font-bold">{project.name}</h1>
           <p className="py-6">{project.description}</p>
-          <button className="btn btn-primary">Get Started</button>
+          <div>
+            {project.siteUrl ? <WebsiteLink href={project.siteUrl} /> : null}
+            {project.githubUrl ? <GithubLink href={project.githubUrl} /> : null}
+          </div>
         </div>
       </div>
     </div>
