@@ -29,7 +29,8 @@ async function main() {
     update: {},
     create: {
       name: '데일리바이트',
-      description: '쉬우면서도 깊이 있는 비즈니스・경제 미디어를 제공하는 서비스입니다.',
+      description:
+        '쉬우면서도 깊이 있는 비즈니스・경제 미디어를 제공하는 서비스입니다. 클라이언트 및 백오피스 프론트엔드 개발 전체를 담당했습니다.',
       siteUrl: 'https://www.mydailybyte.com',
       githubUrl: undefined,
       images: {
@@ -139,7 +140,8 @@ async function main() {
     update: {},
     create: {
       name: '데일리바이트 B2B',
-      description: '바이트컴퍼니의 B2B 서비스입니다. 금융 관련 제휴사 앱의 웹뷰를 제공하고 있습니다.',
+      description:
+        '바이트컴퍼니의 B2B 서비스로 금융 관련 제휴사 앱의 웹뷰를 제공하고 있습니다. 신한금융투자, 농협 올원뱅크의 웹뷰 프론트엔드 개발 전체를 담당했습니다.',
       siteUrl: 'https://biz.mydailybyte.com/nh',
       githubUrl: undefined,
       images: {

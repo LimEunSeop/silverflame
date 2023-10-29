@@ -8,7 +8,7 @@ import ToggleMenu from './ToggleMenu'
 const MainLayout = ({ children }: { children: ReactNode }) => {
   return (
     <div className="flex min-h-screen flex-col">
-      <header className="navbar sticky top-0 bg-base-100 shadow-xl">
+      <header className="navbar sticky top-0 z-[999] bg-base-100 shadow-xl">
         <div className="navbar-start">
           <ToggleMenu />
           <Link href="/careers" className="btn btn-ghost flex items-center gap-2 normal-case lg:gap-3">
