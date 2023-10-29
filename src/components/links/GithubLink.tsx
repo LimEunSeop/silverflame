@@ -4,7 +4,7 @@ type Props = {
 
 const GithubLink = ({ href }: Props) => {
   return (
-    <a href={href} rel="noreferrer noopener nofollow" className="btn btn-square btn-ghost">
+    <a href={href} target="_blank" rel="noreferrer noopener nofollow" className="btn btn-square btn-ghost">
       <svg viewBox="0 0 24 24" aria-hidden="true" className="h-6 w-6 fill-base-content">
         <path
           fill-rule="evenodd"

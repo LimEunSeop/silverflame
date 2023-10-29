@@ -6,7 +6,7 @@ type Props = {
 
 const WebsiteLink = ({ href }: Props) => {
   return (
-    <a href={href} rel="noreferrer noopener nofollow" className="btn btn-square btn-ghost">
+    <a href={href} target="_blank" rel="noreferrer noopener nofollow" className="btn btn-square btn-ghost">
       <GlobeAltIcon className="h-6 w-6" />
     </a>
   )
