@@ -25,12 +25,20 @@ pipeline {
 
       environment {
         DATABASE_URL = credentials('env_prod_database_url')
+        NEXTAUTH_URL = 'https://www.silverflame.dev'
+        NEXTAUTH_SECRET = credentials('env_prod_nextauth_secret')
+        GITHUB_ID = credentials('env_prod_github_id')
+        GITHUB_SECRET = credentials('env_prod_github_secret')
       }
 
       steps {
         nodejs(nodeJSInstallationName: 'node-lts') {
           sh 'echo > .env.production'
           sh 'echo DATABASE_URL=${DATABASE_URL} >> .env.production'
+          sh 'echo NEXTAUTH_URL=${NEXTAUTH_URL} >> .env.production'
+          sh 'echo NEXTAUTH_SECRET=${NEXTAUTH_SECRET} >> .env.production'
+          sh 'echo GITHUB_ID=${GITHUB_ID} >> .env.production'
+          sh 'echo GITHUB_SECRET=${GITHUB_SECRET} >> .env.production'
 
           sh 'npm ci --platform=linuxmusl --arch=x64' // 배포가 되는 alpine linux 서버의 플랫폼 아키텍쳐. sharp 에러 해결
           sh 'npx prisma migrate deploy'

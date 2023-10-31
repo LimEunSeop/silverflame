@@ -4,6 +4,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { ReactNode } from 'react'
 import ToggleMenu from './ToggleMenu'
+import LogoLink from '@/components/links/LogoLink'
 
 const MainLayout = ({ children }: { children: ReactNode }) => {
   return (
@@ -11,18 +12,7 @@ const MainLayout = ({ children }: { children: ReactNode }) => {
       <header className="navbar sticky top-0 z-10 bg-base-100 shadow-xl">
         <div className="navbar-start">
           <ToggleMenu />
-          <Link href="/careers" className="btn btn-ghost flex items-center gap-2 normal-case lg:gap-3">
-            <div className="relative aspect-[1/1.38] w-6 lg:w-7">
-              <Image
-                src="/logo-icononly-nobuffer.png"
-                fill
-                sizes="100%"
-                alt="로고"
-                className="object-contain object-center"
-              />
-            </div>
-            <span className="text-sm lg:text-lg">Careers</span>
-          </Link>
+          <LogoLink href="/careers" text="Careers" />
         </div>
         <nav className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
