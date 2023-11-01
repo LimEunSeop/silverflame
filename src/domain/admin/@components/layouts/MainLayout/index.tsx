@@ -8,6 +8,7 @@ import Link from 'next/link'
 import ToggleTheme from '@/components/inputs/ToggleTheme'
 import SignOutButton from '@/components/buttons/SignOutButton'
 import HomeLink from '@/components/links/HomeLink'
+import BreadCrumbs from './BreadCrumbs'
 
 type Props = {
   children: ReactNode
@@ -22,9 +23,14 @@ const MainLayout = ({ children }: Props) => {
             <div className="mb-5 mt-3">
               <LogoLink href="/admin" text="Admin" />
             </div>
-            <ul className="menu w-56 p-0 [&_li>*]:rounded-none">
+            <ul className="menu rounded-box w-56 bg-base-200">
               <li>
-                <Link href="/admin/careers">Careers</Link>
+                <h2 className="menu-title">Careers</h2>
+                <ul>
+                  <li>
+                    <Link href="/admin/careers">Codes</Link>
+                  </li>
+                </ul>
               </li>
             </ul>
           </div>
@@ -34,7 +40,10 @@ const MainLayout = ({ children }: Props) => {
             <SignOutButton />
           </div>
         </div>
-        <div className="min-w-[375px] p-6">{children}</div>
+        <div className="min-w-[375px] p-6">
+          <BreadCrumbs />
+          {children}
+        </div>
       </div>
     </SessionProvider>
   )

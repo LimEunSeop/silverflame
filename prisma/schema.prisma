@@ -28,12 +28,20 @@ model Project {
 }
 
 model ProjectImage {
-  id        Int     @id @default(autoincrement())
+  id        Int      @id @default(autoincrement())
   url       String
   altText   String
   platform  Platform
-  project   Project @relation(fields: [projectId], references: [id])
+  project   Project  @relation(fields: [projectId], references: [id])
   projectId Int
+}
+
+model Code {
+  id           Int      @id @default(autoincrement())
+  name         String
+  descriptions String[]
+  code         String
+  tags         String[] 
 }
 
 enum Platform {

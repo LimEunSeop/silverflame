@@ -23,6 +23,11 @@ const nextConfig = {
         destination: '/admin/careers',
         permanent: true,
       },
+      {
+        source: '/admin/careers',
+        destination: '/admin/careers/codes',
+        permanent: true,
+      },
     ]
   },
   experimental: {
