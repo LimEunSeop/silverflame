@@ -18,6 +18,11 @@ const nextConfig = {
         destination: '/careers/experiences/portfolio',
         permanent: true,
       },
+      {
+        source: '/admin',
+        destination: '/admin/careers',
+        permanent: true,
+      },
     ]
   },
   experimental: {

@@ -24,13 +24,7 @@ const MainLayout = ({ children }: Props) => {
             </div>
             <ul className="menu w-56 p-0 [&_li>*]:rounded-none">
               <li>
-                <a>Item 1</a>
-              </li>
-              <li>
-                <a>Item 2</a>
-              </li>
-              <li>
-                <a>Item 3</a>
+                <Link href="/admin/careers">Careers</Link>
               </li>
             </ul>
           </div>
@@ -40,7 +34,7 @@ const MainLayout = ({ children }: Props) => {
             <SignOutButton />
           </div>
         </div>
-        <div className="p-6">{children}</div>
+        <div className="min-w-[375px] p-6">{children}</div>
       </div>
     </SessionProvider>
   )
