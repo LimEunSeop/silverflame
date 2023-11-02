@@ -1,0 +1,3 @@
+-- AlterTable
+ALTER TABLE "Code" ALTER COLUMN "descriptions" DROP DEFAULT,
+ALTER COLUMN "tags" DROP DEFAULT;

@@ -12,14 +12,14 @@ datasource db {
 }
 
 model App {
-  id    Int    @id @default(autoincrement())
+  id    String @id @default(uuid())
   name  String @unique
   image String
   url   String
 }
 
 model Project {
-  id            Int            @id @default(autoincrement())
+  id            String         @id @default(uuid())
   name          String         @unique
   description   String
   siteUrl       String?
@@ -28,20 +28,21 @@ model Project {
 }
 
 model ProjectImage {
-  id        Int      @id @default(autoincrement())
+  id        String   @id @default(uuid())
   url       String
   altText   String
   platform  Platform
   project   Project  @relation(fields: [projectId], references: [id])
-  projectId Int
+  projectId String
 }
 
 model Code {
-  id           Int      @id @default(autoincrement())
+  id           String   @id @default(uuid())
   name         String
   descriptions String[]
   code         String
-  tags         String[] 
+  language     String?
+  tags         String[]
 }
 
 enum Platform {

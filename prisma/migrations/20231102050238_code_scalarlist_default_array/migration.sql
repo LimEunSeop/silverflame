@@ -1,0 +1,3 @@
+-- AlterTable
+ALTER TABLE "Code" ALTER COLUMN "descriptions" SET DEFAULT ARRAY[]::TEXT[],
+ALTER COLUMN "tags" SET DEFAULT ARRAY[]::TEXT[];

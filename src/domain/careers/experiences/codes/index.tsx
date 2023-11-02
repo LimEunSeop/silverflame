@@ -1,35 +1,16 @@
-'use client'
-import { Highlight, themes } from 'prism-react-renderer'
+import prisma from '@/lib/prisma'
+import CodeCard from './CodeCard'
 
-const codeBlock = `
-const GroceryItem: React.FC<GroceryItemProps> = ({ item }) => {
-  return (
-    <div>
-      <h2>{item.name}</h2>
-      <p>Price: {item.price}</p>
-      <p>Quantity: {item.quantity}</p>
-    </div>
-  );
-}
-`
+const CareersCodes = async () => {
+  const codeList = await prisma.code.findMany()
 
-const CareersCodes = () => {
   return (
-    <div>
-      <Highlight theme={themes.shadesOfPurple} code={codeBlock} language="tsx">
-        {({ className, style, tokens, getLineProps, getTokenProps }) => (
-          <div style={style} className="mockup-code">
-            {tokens.map((line, i) => (
-              <pre key={i} {...getLineProps({ line })} data-prefix={i + 1}>
-                {/* <span>{i + 1}</span> */}
-                {line.map((token, key) => (
-                  <span key={key} {...getTokenProps({ token })} />
-                ))}
-              </pre>
-            ))}
-          </div>
-        )}
-      </Highlight>
+    <div className="flex justify-center">
+      <div className="inline-grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-3">
+        {codeList.map((code) => (
+          <CodeCard key={code.id} code={code} />
+        ))}
+      </div>
     </div>
   )
 }

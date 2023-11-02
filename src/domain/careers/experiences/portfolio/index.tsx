@@ -1,4 +1,4 @@
-import getProjectList from '../../@utils/getProjectList'
+import { getProjectList } from '@/utils/db/careers'
 import Project from './Project'
 
 const CareersPortfolio = async () => {

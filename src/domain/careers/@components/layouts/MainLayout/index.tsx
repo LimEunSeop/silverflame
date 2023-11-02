@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { ReactNode } from 'react'
 import ToggleMenu from './ToggleMenu'
 import LogoLink from '@/components/links/LogoLink'
+import BreadCrumbs from '@/domain/admin/@components/layouts/MainLayout/BreadCrumbs'
 
 const MainLayout = ({ children }: { children: ReactNode }) => {
   return (
@@ -45,7 +46,10 @@ const MainLayout = ({ children }: { children: ReactNode }) => {
           <ToggleTheme />
         </div>
       </header>
-      <main className="h-full md:container">{children}</main>
+      <main className="h-full md:container">
+        <BreadCrumbs />
+        {children}
+      </main>
     </div>
   )
 }
