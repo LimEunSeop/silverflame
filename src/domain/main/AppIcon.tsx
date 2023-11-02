@@ -1,13 +1,9 @@
 import Link from 'next/link'
 import Image from 'next/image'
+import { App } from '@prisma/client'
 
 type Props = {
-  app: {
-    id: number
-    name: string
-    image: string
-    url: string
-  }
+  app: App
 }
 
 const AppIcon = ({ app: { id, name, image, url } }: Props) => {
