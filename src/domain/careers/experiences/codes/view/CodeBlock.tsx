@@ -9,7 +9,7 @@ type Props = {
 
 const CodeBlock = ({ code, language }: Props) => {
   return (
-    <Highlight theme={themes.shadesOfPurple} code={code} language={language}>
+    <Highlight theme={themes.jettwaveDark} code={code} language={language}>
       {({ className, style, tokens, getLineProps, getTokenProps }) => (
         <div style={style} className="mockup-code">
           {tokens.map((line, i) => (
