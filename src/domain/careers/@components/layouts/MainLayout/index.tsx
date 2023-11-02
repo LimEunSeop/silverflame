@@ -46,9 +46,9 @@ const MainLayout = ({ children }: { children: ReactNode }) => {
           <ToggleTheme />
         </div>
       </header>
-      <main className="h-full md:container">
+      <main className="flex flex-1 flex-col md:container">
         <BreadCrumbs />
-        {children}
+        <div className="flex flex-1 flex-col">{children}</div>
       </main>
     </div>
   )
