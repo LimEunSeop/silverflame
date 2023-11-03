@@ -4,7 +4,7 @@ import CopyButton from '@/components/buttons/CopyButton'
 import Link from 'next/link'
 import ColorHash from 'color-hash'
 
-var colorHash = new ColorHash({ lightness: [0.35, 0.5, 0.65] })
+const colorHash = new ColorHash({ lightness: [0.35, 0.5, 0.65] })
 
 type Props = {
   code: Code
