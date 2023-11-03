@@ -7,7 +7,7 @@ const Main = async () => {
 
   return (
     <div className="flex flex-col gap-8">
-      <Image src="/logo-full.png" width="300" height="240" alt="" />
+      <Image src="/logo-full.png" width="300" height="240" alt="silverflame frontend" />
       <div className="flex justify-center gap-8">
         {appList.map((app) => (
           <AppIcon key={app.id} app={app} />
