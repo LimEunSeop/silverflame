@@ -22,7 +22,7 @@ const BreadCrumbs = () => {
   const slashPositions = [...findIndexAll(pathname, '/')]
 
   return (
-    <div className="breadcrumbs text-sm">
+    <div className="breadcrumbs px-4 text-sm">
       <ul>
         {pathname.split('/').map((linkName, i) => {
           if (i === 0) return null

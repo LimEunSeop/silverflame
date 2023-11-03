@@ -24,6 +24,7 @@ const ToggleTheme = () => {
   const setTheme = useCallback(
     (theme: string) => {
       document.documentElement.dataset.theme = theme
+      setToggleStateByTheme(theme)
       changeGlobalThemeState(theme)
     },
     [changeGlobalThemeState],
@@ -37,6 +38,8 @@ const ToggleTheme = () => {
   }
 
   useEffect(() => {
+    setTheme(document.documentElement.dataset.theme ?? THEME_LIGHT)
+
     const colorSchemePreferenceChangeEventHandler = (event: MediaQueryListEvent) => {
       const newTheme = event.matches ? THEME_DARK : THEME_LIGHT
       setToggleStateByTheme(newTheme)
