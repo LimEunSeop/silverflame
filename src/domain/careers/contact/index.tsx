@@ -1,4 +1,5 @@
 import GithubLink from '@/components/links/GithubLink'
+import { LINK_EMAIL, LINK_GITHUB } from '@/constants'
 
 const CareersContact = () => {
   return (
@@ -11,9 +12,9 @@ const CareersContact = () => {
             <br />
             무엇이든 연락해주시면 성심성의껏 답변드리겠습니다.
             <br />
-            <GithubLink href="https://github.com/limeunseop" />
+            <GithubLink href={LINK_GITHUB} />
           </p>
-          <a href="mailto:dmstjq92@gmail.com" className="btn btn-primary">
+          <a href={LINK_EMAIL} className="btn btn-primary">
             Email
           </a>
         </div>
