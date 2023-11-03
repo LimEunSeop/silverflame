@@ -17,8 +17,8 @@ type Props = {
 const MainLayout = ({ children }: Props) => {
   return (
     <SessionProvider>
-      <div className="grid min-h-screen grid-cols-[auto_1fr]">
-        <div className="flex flex-col justify-between bg-base-200">
+      <div className="grid grid-cols-[auto_1fr]">
+        <div className="sticky top-0 flex h-screen flex-col justify-between bg-base-200">
           <div>
             <div className="mb-5 mt-3">
               <LogoLink href="/admin" text="Admin" />
