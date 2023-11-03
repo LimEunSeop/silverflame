@@ -1,5 +1,7 @@
 'use client'
 
+import { THEME_DARK } from '@/constants'
+import { useThemeStore } from '@/stores'
 import { Highlight, themes } from 'prism-react-renderer'
 
 type Props = {
@@ -8,8 +10,14 @@ type Props = {
 }
 
 const CodeBlock = ({ code, language }: Props) => {
+  const theme = useThemeStore((store) => store.theme)
+
   return (
-    <Highlight theme={themes.jettwaveDark} code={code} language={language}>
+    <Highlight
+      theme={theme === THEME_DARK ? themes.jettwaveDark : themes.jettwaveLight}
+      code={code}
+      language={language}
+    >
       {({ className, style, tokens, getLineProps, getTokenProps }) => (
         <div style={style} className="mockup-code">
           {tokens.map((line, i) => (
