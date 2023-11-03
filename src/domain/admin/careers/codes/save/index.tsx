@@ -6,18 +6,12 @@ import { redirect } from 'next/navigation'
 import { ZodError, z } from 'zod'
 
 const codeSchema = z.object({
-  id: z.string().optional(),
-  name: z.string(),
-  descriptions: z
-    .string()
-    .optional()
-    .transform((val) => (val ? val.split('\r\n') : undefined)),
-  code: z.string(),
-  language: z.string().optional(),
-  tags: z
-    .string()
-    .optional()
-    .transform((val) => (val ? val.split(',') : undefined)),
+  id: z.string().transform((val) => val || undefined),
+  name: z.string().min(1),
+  descriptions: z.string().transform((val) => (val ? val.split('\r\n') : undefined)),
+  code: z.string().min(1),
+  language: z.string().transform((val) => val || undefined),
+  tags: z.string().transform((val) => (val ? val.split(',') : undefined)),
 })
 
 type Props = {
