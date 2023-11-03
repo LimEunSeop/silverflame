@@ -1,6 +1,8 @@
 'use client'
 
 import MyPortal from '@/components/MyPortal'
+import { LINK_BLOG, LINK_GITHUB, LINK_NOTION } from '@/constants'
+import { ArrowTopRightOnSquareIcon } from '@heroicons/react/24/outline'
 import Link from 'next/link'
 import { ChangeEventHandler, MouseEventHandler, useState } from 'react'
 
@@ -55,6 +57,21 @@ const ToggleMenu = () => {
                   <Link href="/careers/experiences/codes" onClick={handleMenuClicked}>
                     Codes
                   </Link>
+                </li>
+                <li>
+                  <a href={LINK_GITHUB} target="_blank" rel="noreferrer noopener nofollow">
+                    Github <ArrowTopRightOnSquareIcon className="h-4 w-4" />
+                  </a>
+                </li>
+                <li>
+                  <a href={LINK_BLOG} target="_blank" rel="noreferrer noopener nofollow">
+                    Blog <ArrowTopRightOnSquareIcon className="h-4 w-4" />
+                  </a>
+                </li>
+                <li>
+                  <a href={LINK_NOTION} target="_blank" rel="noreferrer noopener nofollow">
+                    Notion <ArrowTopRightOnSquareIcon className="h-4 w-4" />
+                  </a>
                 </li>
               </ul>
             </li>

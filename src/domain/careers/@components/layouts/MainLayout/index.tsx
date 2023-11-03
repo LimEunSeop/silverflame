@@ -6,6 +6,8 @@ import { ReactNode } from 'react'
 import ToggleMenu from './ToggleMenu'
 import LogoLink from '@/components/links/LogoLink'
 import BreadCrumbs from '@/domain/admin/@components/layouts/MainLayout/BreadCrumbs'
+import { LINK_BLOG, LINK_GITHUB, LINK_NOTION } from '@/constants'
+import { ArrowTopRightOnSquareIcon } from '@heroicons/react/24/outline'
 
 const MainLayout = ({ children }: { children: ReactNode }) => {
   return (
@@ -29,6 +31,21 @@ const MainLayout = ({ children }: { children: ReactNode }) => {
                   </li>
                   <li>
                     <Link href="/careers/experiences/codes">Codes</Link>
+                  </li>
+                  <li>
+                    <a href={LINK_GITHUB} target="_blank" rel="noreferrer noopener nofollow">
+                      Github <ArrowTopRightOnSquareIcon className="h-4 w-4" />
+                    </a>
+                  </li>
+                  <li>
+                    <a href={LINK_BLOG} target="_blank" rel="noreferrer noopener nofollow">
+                      Blog <ArrowTopRightOnSquareIcon className="h-4 w-4" />
+                    </a>
+                  </li>
+                  <li>
+                    <a href={LINK_NOTION} target="_blank" rel="noreferrer noopener nofollow">
+                      Notion <ArrowTopRightOnSquareIcon className="h-4 w-4" />
+                    </a>
                   </li>
                 </ul>
               </details>
