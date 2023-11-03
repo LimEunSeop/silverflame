@@ -57,7 +57,8 @@
     "sharp": "^0.32.6",
     "tailwindcss": "3.3.5",
     "typescript": "5.2.2",
-    "zod": "^3.22.4"
+    "zod": "^3.22.4",
+    "zustand": "^4.4.5"
   },
   "devDependencies": {
     "git-branch-is": "^4.0.0",

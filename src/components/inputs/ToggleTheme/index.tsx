@@ -1,12 +1,12 @@
 'use client'
 
-import { ChangeEventHandler, useEffect, useRef } from 'react'
-
-export const THEME_LIGHT = 'silverflame-light'
-export const THEME_DARK = 'silverflame-dark'
+import { THEME_DARK, THEME_LIGHT } from '@/constants'
+import { useThemeStore } from '@/stores'
+import { ChangeEventHandler, useCallback, useEffect, useRef } from 'react'
 
 const ToggleTheme = () => {
   const toggleThemeRef = useRef<HTMLInputElement>(null)
+  const changeGlobalThemeState = useThemeStore((state) => state.change)
 
   const setToggleStateByTheme = (theme: string) => {
     switch (theme) {
@@ -21,9 +21,13 @@ const ToggleTheme = () => {
     }
   }
 
-  const setTheme = (theme: string) => {
-    document.documentElement.dataset.theme = theme
-  }
+  const setTheme = useCallback(
+    (theme: string) => {
+      document.documentElement.dataset.theme = theme
+      changeGlobalThemeState(theme)
+    },
+    [changeGlobalThemeState],
+  )
 
   const toggleTheme: ChangeEventHandler<HTMLInputElement> = (e) => {
     const checked = e.target.checked
@@ -33,8 +37,6 @@ const ToggleTheme = () => {
   }
 
   useEffect(() => {
-    setToggleStateByTheme(document.documentElement.dataset.theme ?? THEME_LIGHT)
-
     const colorSchemePreferenceChangeEventHandler = (event: MediaQueryListEvent) => {
       const newTheme = event.matches ? THEME_DARK : THEME_LIGHT
       setToggleStateByTheme(newTheme)
@@ -50,7 +52,7 @@ const ToggleTheme = () => {
         .matchMedia('(prefers-color-scheme: dark)')
         .removeEventListener('change', colorSchemePreferenceChangeEventHandler)
     }
-  }, [])
+  }, [setTheme])
 
   return (
     <label className="btn btn-square btn-ghost swap swap-rotate">

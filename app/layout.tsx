@@ -1,11 +1,11 @@
 'use client'
 
-import { THEME_DARK, THEME_LIGHT } from '@/components/inputs/ToggleTheme'
 import './globals.css'
 import localFont from 'next/font/local'
 import Script from 'next/script'
 import { ReactNode, useEffect, useRef } from 'react'
 import { PORTAL_ID } from '@/components/MyPortal'
+import { THEME_DARK, THEME_LIGHT } from '@/constants'
 
 const pretendard = localFont({
   //! 모듈 위치 바뀜 주의. import문의 규칙을 따를수는 없는걸까?
