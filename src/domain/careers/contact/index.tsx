@@ -3,7 +3,7 @@ const CareersContact = () => {
     <div className="hero flex-1">
       <div className="hero-content text-center">
         <div className="max-w-md">
-          <h1 className="break-keep text-5xl font-bold">방문해주셔서 감사합니다.</h1>
+          <h1 className="break-keep text-5xl font-bold">방문해주셔서 감사합니다</h1>
           <p className="py-6">
             꾸준히 정진하는 개발자가 되겠습니다.
             <br />
