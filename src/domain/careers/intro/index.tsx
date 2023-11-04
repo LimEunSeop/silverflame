@@ -10,7 +10,8 @@ const CareersIntro = () => {
             <Image src="/logo-icononly-nobuffer.png" fill sizes="100%" alt="silverflame 로고" />
           </div>
           <h1 className="text-4xl font-bold leading-tight md:text-5xl md:leading-tight">
-            정확 열정 해결
+            {/* 정확 열정 해결 */}
+            단련하는 개발자
             <br />
             <span className="text-primary">LIM EUNSEOP</span>
           </h1>
