@@ -23,7 +23,7 @@ const CodeCard = ({ code }: Props) => {
       <Link href={`/careers/experiences/codes/view?codeId=${code.id}` as any}>
         <div className="card-body">
           <h2 className="card-title">
-            <span className="overflow-hidden text-ellipsis">{code.name}</span>
+            <span className="overflow-hidden text-ellipsis whitespace-nowrap">{code.name}</span>
             {code.language ? (
               <div className="badge" style={{ background: colorHash.hex(code.language), color: '#fff' }}>
                 {code.language}
