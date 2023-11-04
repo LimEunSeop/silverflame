@@ -153,6 +153,162 @@ const dailyByteBizData = {
     ],
   },
 }
+const frontendLectureData = {
+  name: '프론트엔드 실습',
+  description: '패스트캠퍼스 야무와 함께하는 프론트엔드 개발 시작하기 CAMP 강좌를 수강하며 실습한 결과물입니다.',
+  siteUrl: 'https://codepen.io/collection/XBRdVK?cursor=eyJwYWdlIjoxNn0=',
+  githubUrl: undefined,
+  images: {
+    create: [
+      {
+        altText: '프론트엔드 실습 이미지 1',
+        url: '/images/project-images/frontend-lecture-1.png',
+        platform: 'DESKTOP',
+      },
+      {
+        altText: '프론트엔드 실습 이미지 2',
+        url: '/images/project-images/frontend-lecture-2.png',
+        platform: 'DESKTOP',
+      },
+      {
+        altText: '프론트엔드 실습 이미지 3',
+        url: '/images/project-images/frontend-lecture-3.png',
+        platform: 'DESKTOP',
+      },
+      {
+        altText: '프론트엔드 실습 이미지 4',
+        url: '/images/project-images/frontend-lecture-4.png',
+        platform: 'DESKTOP',
+      },
+      {
+        altText: '프론트엔드 실습 이미지 5',
+        url: '/images/project-images/frontend-lecture-5.png',
+        platform: 'DESKTOP',
+      },
+      {
+        altText: '프론트엔드 실습 이미지 6',
+        url: '/images/project-images/frontend-lecture-6.png',
+        platform: 'DESKTOP',
+      },
+      {
+        altText: '프론트엔드 실습 이미지 7',
+        url: '/images/project-images/frontend-lecture-7.png',
+        platform: 'DESKTOP',
+      },
+    ],
+  },
+}
+const publishingData = {
+  name: '퍼블리싱 프로젝트',
+  description: '웹 사이트를 저만의 마크업으로 재해석하여 퍼블리싱한 결과물입니다.',
+  siteUrl: undefined,
+  githubUrl: 'https://github.com/LimEunSeop/Publishing-Projects-Index',
+  images: {
+    create: [
+      {
+        altText: '퍼블리싱 프로젝트 이미지 1',
+        url: '/images/project-images/publishing-1.png',
+        platform: 'DESKTOP',
+      },
+      {
+        altText: '퍼블리싱 프로젝트 이미지 2',
+        url: '/images/project-images/publishing-2.png',
+        platform: 'DESKTOP',
+      },
+      {
+        altText: '퍼블리싱 프로젝트 이미지 3',
+        url: '/images/project-images/publishing-3.png',
+        platform: 'DESKTOP',
+      },
+      {
+        altText: '퍼블리싱 프로젝트 이미지 4',
+        url: '/images/project-images/publishing-4.png',
+        platform: 'DESKTOP',
+      },
+      {
+        altText: '퍼블리싱 프로젝트 이미지 5',
+        url: '/images/project-images/publishing-5.png',
+        platform: 'DESKTOP',
+      },
+      {
+        altText: '퍼블리싱 프로젝트 이미지 6',
+        url: '/images/project-images/publishing-6.png',
+        platform: 'DESKTOP',
+      },
+      {
+        altText: '퍼블리싱 프로젝트 이미지 7',
+        url: '/images/project-images/publishing-7.png',
+        platform: 'DESKTOP',
+      },
+      {
+        altText: '퍼블리싱 프로젝트 이미지 8',
+        url: '/images/project-images/publishing-8.png',
+        platform: 'DESKTOP',
+      },
+      {
+        altText: '퍼블리싱 프로젝트 이미지 9',
+        url: '/images/project-images/publishing-9.png',
+        platform: 'DESKTOP',
+      },
+      {
+        altText: '퍼블리싱 프로젝트 이미지 10',
+        url: '/images/project-images/publishing-10.png',
+        platform: 'DESKTOP',
+      },
+      {
+        altText: '퍼블리싱 프로젝트 이미지 11',
+        url: '/images/project-images/publishing-11.png',
+        platform: 'DESKTOP',
+      },
+    ],
+  },
+}
+const raffleData = {
+  name: '추첨 프로그램',
+  description:
+    '수업 시간 중 자리바꾸기 프로세스의 비효율을 개선하고자 만든 프로그램으로, 추첨 기능으로 응용할 수 있습니다.',
+  siteUrl: 'https://limeunseop.github.io/raffle',
+  githubUrl: 'https://github.com/LimEunSeop/raffle',
+  images: {
+    create: [
+      {
+        altText: '추첨 프로그램 이미지 1',
+        url: '/images/project-images/raffle-1.png',
+        platform: 'DESKTOP',
+      },
+    ],
+  },
+}
+const vanillaAppData = {
+  name: 'Vanilla JS 앱',
+  description: 'VanillaJS 만으로 제작한 웹 애플리케이션입니다. 알림, 메모, 사진첩 기능을 탑재했습니다.',
+  siteUrl: 'https://limeunseop.github.io/vanilaJS-app/dist',
+  githubUrl: 'https://github.com/LimEunSeop/vanilaJS-app',
+  images: {
+    create: [
+      {
+        altText: 'Vanilla JS 앱 이미지 1',
+        url: '/images/project-images/vanilla-app-1.png',
+        platform: 'MOBILE',
+      },
+      {
+        altText: 'Vanilla JS 앱 이미지 2',
+        url: '/images/project-images/vanilla-app-2.png',
+        platform: 'MOBILE',
+      },
+      {
+        altText: 'Vanilla JS 앱 이미지 3',
+        url: '/images/project-images/vanilla-app-3.png',
+        platform: 'MOBILE',
+      },
+      {
+        altText: 'Vanilla JS 앱 이미지 4',
+        url: '/images/project-images/vanilla-app-4.png',
+        platform: 'MOBILE',
+      },
+    ],
+  },
+}
 
 const prisma = new PrismaClient()
 
@@ -180,8 +336,28 @@ async function main() {
     update: dailyByteBizData,
     create: dailyByteBizData,
   })
+  const frontendLecture = await prisma.project.upsert({
+    where: { name: frontendLectureData.name },
+    update: frontendLectureData,
+    create: frontendLectureData,
+  })
+  const publishing = await prisma.project.upsert({
+    where: { name: publishingData.name },
+    update: publishingData,
+    create: publishingData,
+  })
+  const raffle = await prisma.project.upsert({
+    where: { name: raffleData.name },
+    update: raffleData,
+    create: raffleData,
+  })
+  const vanillaApp = await prisma.project.upsert({
+    where: { name: vanillaAppData.name },
+    update: vanillaAppData,
+    create: vanillaAppData,
+  })
 
-  console.log({ jenkins, transmission, dailyByte, dailyByteBiz })
+  console.log({ jenkins, transmission, dailyByte, dailyByteBiz, frontendLecture, publishing, raffle, vanillaApp })
 }
 
 main()
