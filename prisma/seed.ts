@@ -1,5 +1,91 @@
 const { PrismaClient } = require('@prisma/client')
 
+const careersData = {
+  name: '경력관리 사이트',
+  description:
+    '경력관리를 한 곳에서 체계적으로 하기위해 제작한 사이트입니다. NAS에서 CI/CD, DB를 모두 구성하였고 데이터관리를 위한 백오피스 기능 또한 탑재되어 있습니다.',
+  siteUrl: 'https://www.silverflame.dev/careers',
+  githubUrl: 'https://github.com/LimEunSeop/silverflame',
+  images: {
+    create: [
+      {
+        altText: '경력관리 사이트 데스크탑 이미지 1',
+        url: '/images/project-images/careers-desktop-1.png',
+        platform: 'DESKTOP',
+      },
+      {
+        altText: '경력관리 사이트 데스크탑 이미지 2',
+        url: '/images/project-images/careers-desktop-2.png',
+        platform: 'DESKTOP',
+      },
+      {
+        altText: '경력관리 사이트 데스크탑 이미지 3',
+        url: '/images/project-images/careers-desktop-3.png',
+        platform: 'DESKTOP',
+      },
+      {
+        altText: '경력관리 사이트 데스크탑 이미지 4',
+        url: '/images/project-images/careers-desktop-4.png',
+        platform: 'DESKTOP',
+      },
+      {
+        altText: '경력관리 사이트 데스크탑 이미지 5',
+        url: '/images/project-images/careers-desktop-5.png',
+        platform: 'DESKTOP',
+      },
+      {
+        altText: '경력관리 사이트 데스크탑 이미지 6',
+        url: '/images/project-images/careers-desktop-6.png',
+        platform: 'DESKTOP',
+      },
+      {
+        altText: '경력관리 사이트 데스크탑 이미지 7',
+        url: '/images/project-images/careers-desktop-7.png',
+        platform: 'DESKTOP',
+      },
+      {
+        altText: '경력관리 사이트 모바일 이미지 1',
+        url: '/images/project-images/careers-mobile-1.png',
+        platform: 'MOBILE',
+      },
+      {
+        altText: '경력관리 사이트 모바일 이미지 2',
+        url: '/images/project-images/careers-mobile-2.png',
+        platform: 'MOBILE',
+      },
+      {
+        altText: '경력관리 사이트 모바일 이미지 3',
+        url: '/images/project-images/careers-mobile-3.png',
+        platform: 'MOBILE',
+      },
+      {
+        altText: '경력관리 사이트 모바일 이미지 4',
+        url: '/images/project-images/careers-mobile-4.png',
+        platform: 'MOBILE',
+      },
+      {
+        altText: '경력관리 사이트 모바일 이미지 5',
+        url: '/images/project-images/careers-mobile-5.png',
+        platform: 'MOBILE',
+      },
+      {
+        altText: '경력관리 사이트 모바일 이미지 6',
+        url: '/images/project-images/careers-mobile-6.png',
+        platform: 'MOBILE',
+      },
+      {
+        altText: '경력관리 사이트 모바일 이미지 7',
+        url: '/images/project-images/careers-mobile-7.png',
+        platform: 'MOBILE',
+      },
+      {
+        altText: '경력관리 사이트 모바일 이미지 8',
+        url: '/images/project-images/careers-mobile-8.png',
+        platform: 'MOBILE',
+      },
+    ],
+  },
+}
 const jenkinsData = {
   name: 'Jenkins',
   image: '/images/app-icons/jenkins.svg',
@@ -309,92 +395,6 @@ const vanillaAppData = {
     ],
   },
 }
-const careersData = {
-  name: '경력관리 사이트',
-  description:
-    '경력관리를 한 곳에서 체계적으로 하기위해 제작한 사이트입니다. NAS에서 CI/CD, DB를 모두 구성하였고 데이터관리를 위한 백오피스 기능 또한 탑재되어 있습니다.',
-  siteUrl: 'https://www.silverflame.dev/careers',
-  githubUrl: 'https://github.com/LimEunSeop/silverflame',
-  images: {
-    create: [
-      {
-        altText: '경력관리 사이트 데스크탑 이미지 1',
-        url: '/images/project-images/careers-desktop-1.png',
-        platform: 'DESKTOP',
-      },
-      {
-        altText: '경력관리 사이트 데스크탑 이미지 2',
-        url: '/images/project-images/careers-desktop-2.png',
-        platform: 'DESKTOP',
-      },
-      {
-        altText: '경력관리 사이트 데스크탑 이미지 3',
-        url: '/images/project-images/careers-desktop-3.png',
-        platform: 'DESKTOP',
-      },
-      {
-        altText: '경력관리 사이트 데스크탑 이미지 4',
-        url: '/images/project-images/careers-desktop-4.png',
-        platform: 'DESKTOP',
-      },
-      {
-        altText: '경력관리 사이트 데스크탑 이미지 5',
-        url: '/images/project-images/careers-desktop-5.png',
-        platform: 'DESKTOP',
-      },
-      {
-        altText: '경력관리 사이트 데스크탑 이미지 6',
-        url: '/images/project-images/careers-desktop-6.png',
-        platform: 'DESKTOP',
-      },
-      {
-        altText: '경력관리 사이트 데스크탑 이미지 7',
-        url: '/images/project-images/careers-desktop-7.png',
-        platform: 'DESKTOP',
-      },
-      {
-        altText: '경력관리 사이트 모바일 이미지 1',
-        url: '/images/project-images/careers-mobile-1.png',
-        platform: 'MOBILE',
-      },
-      {
-        altText: '경력관리 사이트 모바일 이미지 2',
-        url: '/images/project-images/careers-mobile-2.png',
-        platform: 'MOBILE',
-      },
-      {
-        altText: '경력관리 사이트 모바일 이미지 3',
-        url: '/images/project-images/careers-mobile-3.png',
-        platform: 'MOBILE',
-      },
-      {
-        altText: '경력관리 사이트 모바일 이미지 4',
-        url: '/images/project-images/careers-mobile-4.png',
-        platform: 'MOBILE',
-      },
-      {
-        altText: '경력관리 사이트 모바일 이미지 5',
-        url: '/images/project-images/careers-mobile-5.png',
-        platform: 'MOBILE',
-      },
-      {
-        altText: '경력관리 사이트 모바일 이미지 6',
-        url: '/images/project-images/careers-mobile-6.png',
-        platform: 'MOBILE',
-      },
-      {
-        altText: '경력관리 사이트 모바일 이미지 7',
-        url: '/images/project-images/careers-mobile-7.png',
-        platform: 'MOBILE',
-      },
-      {
-        altText: '경력관리 사이트 모바일 이미지 8',
-        url: '/images/project-images/careers-mobile-8.png',
-        platform: 'MOBILE',
-      },
-    ],
-  },
-}
 
 const prisma = new PrismaClient()
 
@@ -412,6 +412,11 @@ async function main() {
   })
 
   console.log('== Project Seeding ==')
+  const careers = await prisma.project.upsert({
+    where: { name: careersData.name },
+    update: careersData,
+    create: careersData,
+  })
   const dailyByte = await prisma.project.upsert({
     where: { name: dailyByteData.name },
     update: dailyByteData,
@@ -443,15 +448,22 @@ async function main() {
     create: vanillaAppData,
   })
 
-  console.log({ jenkins, transmission, dailyByte, dailyByteBiz, frontendLecture, publishing, raffle, vanillaApp })
+  console.log({
+    jenkins,
+    transmission,
+    careers,
+    dailyByte,
+    dailyByteBiz,
+    frontendLecture,
+    publishing,
+    raffle,
+    vanillaApp,
+  })
 }
 
-main()
-  .then(async () => {
-    await prisma.$disconnect()
-  })
-  .catch(async (e) => {
-    console.error(e)
-    await prisma.$disconnect()
-    process.exit(1)
-  })
+// prettier-ignore
+main().then(async () => {await prisma.$disconnect()}).catch(async (e) => {
+  console.error(e)
+  await prisma.$disconnect()
+  process.exit(1)
+})
