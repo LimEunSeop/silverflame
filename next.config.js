@@ -32,7 +32,7 @@ const nextConfig = {
   },
   experimental: {
     typedRoutes: true,
-    serverActions: true,
+    middlewarePrefetch: 'strict',
   },
 }
 
