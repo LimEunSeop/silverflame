@@ -11,7 +11,8 @@ const CareersIntro = () => {
           </div>
           <h1 className="text-4xl font-bold leading-tight md:text-5xl md:leading-tight">
             {/* 정확 열정 해결 */}
-            단련하는 개발자
+            {/* 단련하는 개발자 */}
+            집요한 문제해결사
             <br />
             <span className="text-primary">LIM EUNSEOP</span>
           </h1>
