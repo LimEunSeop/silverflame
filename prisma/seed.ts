@@ -7,7 +7,7 @@ const careersData = {
   siteUrl: 'https://www.silverflame.dev/careers',
   githubUrl: 'https://github.com/LimEunSeop/silverflame',
   images: {
-    create: [
+    update: [
       {
         altText: '경력관리 사이트 데스크탑 이미지 1',
         url: '/images/project-images/careers-desktop-1.png',
@@ -103,7 +103,7 @@ const dailyByteData = {
   siteUrl: 'https://www.mydailybyte.com',
   githubUrl: undefined,
   images: {
-    create: [
+    update: [
       {
         altText: '데일리바이트 데스크탑 이미지 1',
         url: '/images/project-images/daily-byte-desktop-1.png',
@@ -210,7 +210,7 @@ const dailyByteBizData = {
   siteUrl: 'https://biz.mydailybyte.com/nh',
   githubUrl: undefined,
   images: {
-    create: [
+    update: [
       {
         altText: '데일리바이트 B2B 모바일 이미지 1',
         url: '/images/project-images/daily-byte-biz-mobile-1.png',
@@ -245,7 +245,7 @@ const frontendLectureData = {
   siteUrl: 'https://codepen.io/collection/XBRdVK?cursor=eyJwYWdlIjoxNn0=',
   githubUrl: undefined,
   images: {
-    create: [
+    update: [
       {
         altText: '프론트엔드 실습 이미지 1',
         url: '/images/project-images/frontend-lecture-1.png',
@@ -290,7 +290,7 @@ const publishingData = {
   siteUrl: undefined,
   githubUrl: 'https://github.com/LimEunSeop/Publishing-Projects-Index',
   images: {
-    create: [
+    update: [
       {
         altText: '퍼블리싱 프로젝트 이미지 1',
         url: '/images/project-images/publishing-1.png',
@@ -356,7 +356,7 @@ const raffleData = {
   siteUrl: 'https://limeunseop.github.io/raffle',
   githubUrl: 'https://github.com/LimEunSeop/raffle',
   images: {
-    create: [
+    update: [
       {
         altText: '추첨 프로그램 이미지 1',
         url: '/images/project-images/raffle-1.png',
@@ -371,7 +371,7 @@ const vanillaAppData = {
   siteUrl: 'https://limeunseop.github.io/vanilaJS-app/dist',
   githubUrl: 'https://github.com/LimEunSeop/vanilaJS-app',
   images: {
-    create: [
+    update: [
       {
         altText: 'Vanilla JS 앱 이미지 1',
         url: '/images/project-images/vanilla-app-1.png',
