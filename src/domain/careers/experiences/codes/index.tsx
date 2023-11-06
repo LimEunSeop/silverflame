@@ -1,8 +1,8 @@
-import prisma from '@/lib/prisma'
 import CodeCard from './CodeCard'
+import { getCodeList } from '@/utils/db/careers'
 
 const CareersCodes = async () => {
-  const codeList = await prisma.code.findMany()
+  const codeList = await getCodeList()
 
   return (
     <div className="flex justify-center">
