@@ -8,7 +8,6 @@ type Props = {
     images: ProjectImage[]
   }
 }
-;('max-w-sm rounded-lg shadow-2xl')
 
 const Project = ({ project }: Props) => {
   const desktopImages = project.images.filter((image) => image.platform === 'DESKTOP')
