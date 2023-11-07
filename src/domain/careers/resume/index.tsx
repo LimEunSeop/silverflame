@@ -6,9 +6,9 @@ import rehypeSlug from 'rehype-slug'
 import { LinkIcon } from '@heroicons/react/24/outline'
 import { fromHtml } from 'hast-util-from-html'
 
-const CareersResume = async () => {
-  const MARKDOWN_RESUME_URL = 'https://raw.githubusercontent.com/LimEunSeop/my-resume/main/README.md'
+const MARKDOWN_RESUME_URL = 'https://raw.githubusercontent.com/LimEunSeop/my-resume/main/README.md'
 
+const CareersResume = async () => {
   //TODO: react element를 content에 넣는 좋은 방법 없을까?
   // LinkIcon
   const iconHast = fromHtml(
