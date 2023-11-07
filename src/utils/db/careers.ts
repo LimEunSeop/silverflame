@@ -5,7 +5,11 @@ import { cache } from 'react'
 import { Code } from '@prisma/client'
 
 export const getCodeList = cache(async () => {
-  return await prisma.code.findMany()
+  return await prisma.code.findMany({
+    orderBy: {
+      updatedAt: 'desc',
+    },
+  })
 })
 
 export const getCodeItem = cache(async (id: Code['id']) => {
