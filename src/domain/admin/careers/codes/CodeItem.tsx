@@ -5,6 +5,8 @@ import { Code } from '@prisma/client'
 import deleteCodeAction from './@actions/deleteCodeAction'
 import Link from 'next/link'
 import { MouseEventHandler, useRef } from 'react'
+import moment from 'moment-timezone'
+import { momentHere } from '@/utils/basic-utils'
 
 type Props = {
   item: Code
@@ -31,6 +33,8 @@ const CodeItem = ({ item }: Props) => {
       <td>{item.language}</td>
       <td>{item.tags.join(',')}</td>
       <td>{item.descriptions.join('-').slice(0, 50)}</td>
+      <td>{momentHere(item.createdAt).format('YYYY-MM-DD HH:mm:ss')}</td>
+      <td>{momentHere(item.updatedAt).format('YYYY-MM-DD HH:mm:ss')}</td>
       <td>
         <form ref={formRef} action={deleteCodeWithId}>
           <button type="button" className="btn btn-square btn-ghost" onClick={handleDeleteButtonClicked}>

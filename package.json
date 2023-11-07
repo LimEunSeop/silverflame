@@ -40,6 +40,7 @@
     "hast-util-from-html": "^2.0.1",
     "jest": "29.7.0",
     "jest-environment-jsdom": "29.7.0",
+    "moment-timezone": "^0.5.43",
     "next": "14.0.2-canary.17",
     "next-auth": "^4.24.4",
     "postcss": "8.4.31",
