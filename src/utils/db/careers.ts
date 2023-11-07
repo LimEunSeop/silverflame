@@ -6,9 +6,9 @@ import { Code } from '@prisma/client'
 
 export const getCodeList = cache(async () => {
   return await prisma.code.findMany({
-    orderBy: {
-      updatedAt: 'desc',
-    },
+    // orderBy: {
+    //   updatedAt: 'desc',
+    // },
   })
 })
 
