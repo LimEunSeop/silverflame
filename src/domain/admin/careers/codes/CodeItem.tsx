@@ -33,12 +33,12 @@ const CodeItem = ({ item }: Props) => {
       <td>{item.language}</td>
       <td>{item.tags.join(',')}</td>
       <td>{item.descriptions.join('-').slice(0, 50)}</td>
-      <td>
+      {/* <td>
         <UTCToLocal date={item.createdAt} />
       </td>
       <td>
         <UTCToLocal date={item.updatedAt} />
-      </td>
+      </td> */}
       <td>
         <form ref={formRef} action={deleteCodeWithId}>
           <button type="button" className="btn btn-square btn-ghost" onClick={handleDeleteButtonClicked}>
