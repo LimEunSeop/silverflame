@@ -16,8 +16,8 @@ const CodeList = ({ codeList }: Props) => {
           { id: 'language', label: 'language' },
           { id: 'tags', label: 'tags' },
           { id: 'descriptions', label: 'descriptions' },
-          // { id: 'createdAt', label: 'createdAt' },
-          // { id: 'updatedAt', label: 'updatedAt' },
+          { id: 'createdAt', label: 'createdAt' },
+          { id: 'updatedAt', label: 'updatedAt' },
         ]}
         renderItem={(item) => <CodeItem item={item} />}
       />
