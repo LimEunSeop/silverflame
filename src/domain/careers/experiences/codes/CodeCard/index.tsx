@@ -4,13 +4,13 @@ import CopyButton from '@/components/buttons/CopyButton'
 import Link from 'next/link'
 import ColorHash from 'color-hash'
 
+const colorHash = new ColorHash({ lightness: [0.35, 0.5, 0.65] })
+
 type Props = {
   code: Code
 }
 
 const CodeCard = ({ code }: Props) => {
-  const colorHash = new ColorHash({ lightness: [0.35, 0.5, 0.65] })
-
   return (
     <div className="card w-full bg-base-100 shadow-xl dark:bg-base-200 sm:w-72 md:w-80 lg:w-96">
       <figure className="relative">
