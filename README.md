@@ -24,6 +24,7 @@ URL: https://silverflame.dev
 ## Todo
 
 - CD 파이프라인에서 빌드 시 변경된 데이터베이스가 미리 필요하여 migration 후 빌드하도록 했다. 만약 빌드가 실패한다면 치명적인 배포오류가 발생하는데, 이 해결방법을 main 브랜치 병합 전 husky로 미리 빌드해보아 성공여부를 결정하는 것이었다. 더 효율적인 방법이 없을까? push 할때마다 빌드시간이 걸리는 비효율이 좀 발생한다.(이게 배포에 대한 고민의 기회를 좀 더 줄 수도 있다..)
+  - 개선안 아이디어: main 브랜체는 pull 막고, pull request 같은것만 받는다. develop 브랜치에서 테스트 및 빌드성공을 한 커밋을 merge 할 수 있도록 한다. Q) 메인에서 다시 빌드 하는게 필요할까? 하는 부분은 다시 고민해봐야될듯
 - ~~아래와 같은 에러를 해결해보자. .env 를 설정하고 명령어 실행시 환경변수를 세팅해줘도 해결되지 않았다. 이거..해결해야 한다 꼭~~
   - ~~error: 'sharp' is required to be installed in standalone mode for the image optimization to function correctly. Read more at: https://nextjs.org/docs/messages/sharp-missing-in-production~~
   - npm ci 시 프로덕션 플랫폼 옵션을 위해 해결하였다.
