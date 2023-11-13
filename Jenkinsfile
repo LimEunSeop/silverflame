@@ -13,7 +13,7 @@ pipeline {
 
       steps {
         nodejs(nodeJSInstallationName: 'node-lts') {
-          sh 'npm ci --legacy-peer-deps'
+          sh 'npm ci'
           sh 'npm run test:ci -- --passWithNoTests' // 프로덕션 배포때는 테스트 하지 말자
         }
       }
@@ -40,7 +40,7 @@ pipeline {
           sh 'echo GITHUB_ID=${GITHUB_ID} >> .env.production'
           sh 'echo GITHUB_SECRET=${GITHUB_SECRET} >> .env.production'
 
-          sh 'npm ci --platform=linuxmusl --arch=x64 --legacy-peer-deps' // 배포가 되는 alpine linux 서버의 플랫폼 아키텍쳐. sharp 에러 해결
+          sh 'npm ci --platform=linuxmusl --arch=x64' // 배포가 되는 alpine linux 서버의 플랫폼 아키텍쳐. sharp 에러 해결
           sh 'npx prisma migrate deploy'
           sh 'npm run build'
         }
