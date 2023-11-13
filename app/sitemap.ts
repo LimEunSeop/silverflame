@@ -1,4 +1,4 @@
-import { getCodeLastModifiedDate, getProjectLastModifiedDate } from '@/utils/db/careers'
+import { getCodeLastModifiedDate, getCodeList, getProjectLastModifiedDate } from '@/utils/db/careers'
 import { MetadataRoute } from 'next'
 
 export const revalidate = 600
@@ -48,5 +48,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: 'yearly',
       priority: 0.5,
     },
+    ...((await getCodeList()).map((code) => ({
+      url: `${CAREERS_BASE_URL}/experiences/codes/view?codeId=${code.id}`,
+      lastModified: code.updatedAt,
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    })) satisfies MetadataRoute.Sitemap),
   ]
 }
