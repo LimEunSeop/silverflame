@@ -20,6 +20,16 @@ export const getCodeItem = cache(async (id: Code['id']) => {
   })
 })
 
+export const getCodeLastModifiedDate = cache(async () => {
+  return (
+    await prisma.code.findFirst({
+      orderBy: {
+        updatedAt: 'desc',
+      },
+    })
+  )?.updatedAt
+})
+
 export const getProjectList = cache(async () => {
   const projectList = await prisma.project.findMany({
     include: {
@@ -28,4 +38,14 @@ export const getProjectList = cache(async () => {
   })
 
   return projectList
+})
+
+export const getProjectLastModifiedDate = cache(async () => {
+  return (
+    await prisma.project.findFirst({
+      orderBy: {
+        updatedAt: 'desc',
+      },
+    })
+  )?.updatedAt
 })
