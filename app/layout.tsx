@@ -26,7 +26,7 @@ if (
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="ko" className={`${pretendard.variable} font-sans`}>
+    <html lang="ko" className={`${pretendard.variable} font-sans`} suppressHydrationWarning>
       <head>
         <script
           dangerouslySetInnerHTML={{
