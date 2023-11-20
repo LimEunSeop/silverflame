@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 const CareersIntro = () => {
   return (
-    <div className="hero flex-1">
+    <div className="hero absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
       <div className="hero-content text-center">
         <div className="max-w-md">
           <div className="relative mx-auto mb-4 h-[116px] w-[84px] md:h-[166px] md:w-[120px]">

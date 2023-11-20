@@ -11,8 +11,8 @@ import { ArrowTopRightOnSquareIcon } from '@heroicons/react/24/outline'
 
 const MainLayout = ({ children }: { children: ReactNode }) => {
   return (
-    <div className="flex min-h-screen flex-col">
-      <header className="navbar sticky top-0 z-10 bg-base-100 shadow-xl">
+    <div>
+      <header className="navbar fixed top-0 z-10 bg-base-100 shadow-xl">
         <div className="navbar-start">
           <ToggleMenu />
           <LogoLink href="/careers" text="Careers" />
@@ -63,9 +63,9 @@ const MainLayout = ({ children }: { children: ReactNode }) => {
           <ToggleTheme />
         </div>
       </header>
-      <main className="flex flex-1 flex-col md:container">
+      <main className="grid min-h-screen grid-rows-[auto_1fr] pt-[68px] md:container">
         <BreadCrumbs />
-        <div className="flex flex-1 flex-col">{children}</div>
+        <div className="relative">{children}</div>
       </main>
     </div>
   )
