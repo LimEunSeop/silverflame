@@ -6,8 +6,8 @@ export const runtime = 'edge'
 // Image metadata
 export const alt = 'Silverflame Full Logo'
 export const size = {
-  width: 1200,
-  height: 630,
+  width: 800,
+  height: 400,
 }
 
 export const contentType = 'image/png'
