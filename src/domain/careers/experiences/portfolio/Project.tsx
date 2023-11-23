@@ -43,8 +43,8 @@ const Project = ({ project }: Props) => {
             desktopImages.length === 0
               ? 'inline-flex md:inline-flex'
               : mobileImages.length === 0
-              ? 'hidden'
-              : 'inline-flex md:hidden'
+                ? 'hidden'
+                : 'inline-flex md:hidden'
           }`}
         >
           {mobileImages.map((image) => (
