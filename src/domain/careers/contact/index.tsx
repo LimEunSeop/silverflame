@@ -3,7 +3,7 @@ import { LINK_EMAIL, LINK_GITHUB } from '@/constants'
 
 const CareersContact = () => {
   return (
-    <div className="hero flex-1">
+    <div className="hero absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
       <div className="hero-content text-center">
         <div className="max-w-md">
           <h1 className="break-keep text-5xl font-bold leading-tight">방문해주셔서 감사합니다</h1>
