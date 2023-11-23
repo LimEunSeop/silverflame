@@ -17,7 +17,7 @@ const Project = ({ project }: Props) => {
     <div className="hero bg-base-200">
       <div className="hero-content flex-col lg:flex-row">
         <div
-          className={`carousel carousel-center rounded-box max-w-xs space-x-4 bg-neutral p-4 sm:max-w-lg ${
+          className={`carousel carousel-center max-w-xs space-x-4 rounded-box bg-neutral p-4 sm:max-w-lg ${
             mobileImages.length === 0 ? 'inline-flex' : desktopImages.length === 0 ? 'hidden' : 'hidden md:inline-flex'
           }`}
         >
@@ -39,7 +39,7 @@ const Project = ({ project }: Props) => {
         </div>
 
         <div
-          className={`carousel carousel-center rounded-box max-w-xs bg-neutral p-4 sm:max-w-lg ${
+          className={`carousel carousel-center max-w-xs rounded-box bg-neutral p-4 sm:max-w-lg ${
             desktopImages.length === 0
               ? 'inline-flex md:inline-flex'
               : mobileImages.length === 0

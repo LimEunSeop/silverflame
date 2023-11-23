@@ -23,7 +23,7 @@ const MainLayout = ({ children }: Props) => {
             <div className="mb-5 mt-3">
               <LogoLink href="/admin" text="Admin" />
             </div>
-            <ul className="menu rounded-box w-56 bg-base-200">
+            <ul className="menu w-56 rounded-box bg-base-200">
               <li>
                 <h2 className="menu-title">Careers</h2>
                 <ul>
