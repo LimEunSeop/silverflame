@@ -1,7 +1,7 @@
 'use client'
 
 import { UIEventHandler, useState } from 'react'
-import StepIndicator from './StepIndicator'
+import StepIndicator from './components/StepIndicator'
 import * as stepComponentsObj from './step-components'
 
 const stepComponentsArr = Object.values(stepComponentsObj)
