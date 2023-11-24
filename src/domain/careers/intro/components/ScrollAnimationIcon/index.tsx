@@ -1,5 +1,5 @@
 import { useLottie } from 'lottie-react'
-import scrollAnimation from './lottie-scroll-animation.json'
+import scrollAnimation from './scroll-animation.lottie.json'
 
 const ScrollAnimationIcon = () => {
   const { View } = useLottie({
