@@ -2,13 +2,9 @@
 
 import { UIEventHandler, useState } from 'react'
 import StepIndicator from './StepIndicator'
-import Step1 from './Step1'
-import Step2 from './Step2'
-import Step3 from './Step3'
-import Step4 from './Step4'
-import Step5 from './Step5'
+import * as stepComponentsObj from './step-components'
 
-const Pages = [Step1, Step2, Step3, Step4, Step5]
+const stepComponentsArr = Object.values(stepComponentsObj)
 
 const CareersIntro = () => {
   const [currentStep, setCurrentStep] = useState(0)
@@ -28,8 +24,8 @@ const CareersIntro = () => {
     //   setCurrentStep(4)
     // }
 
-    for (let i = 0; i < Pages.length; i++) {
-      if (scrollTop >= offsetHeight * i && scrollTop < offsetHeight * (i + 1)) {
+    for (let i = 0; i < stepComponentsArr.length; i++) {
+      if (scrollTop >= offsetHeight * (i - 0.5) && scrollTop < offsetHeight * (i + 0.5)) {
         setCurrentStep(i)
         break
       }
@@ -38,12 +34,12 @@ const CareersIntro = () => {
 
   return (
     <>
-      <StepIndicator currentStep={currentStep} maxStep={Pages.length - 1} />
+      <StepIndicator currentStep={currentStep} maxStep={stepComponentsArr.length - 1} />
 
       <div className="carousel carousel-vertical h-full w-full" onScroll={handleCarouselScroll}>
-        {Pages.map((Page, i) => (
+        {stepComponentsArr.map((Step, i) => (
           <div key={i} className="carousel-item h-full">
-            <Page key={i} />
+            <Step key={i} />
           </div>
         ))}
       </div>
