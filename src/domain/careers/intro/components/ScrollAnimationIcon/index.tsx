@@ -6,6 +6,6 @@ const ScrollAnimationIcon = () => {
     animationData: scrollAnimation,
     loop: true,
   })
-  return <div className="h-16 w-16 [&_path]:fill-base-content">{View}</div>
+  return <div className="h-10 w-10 md:h-16 md:w-16 [&_path]:fill-base-content">{View}</div>
 }
 export default ScrollAnimationIcon

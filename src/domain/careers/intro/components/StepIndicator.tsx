@@ -9,7 +9,7 @@ type Props = {
 
 const StepIndicator = ({ currentStep, maxStep }: Props) => {
   return (
-    <ul className="steps steps-vertical fixed left-3 top-1/2 -translate-y-1/2">
+    <ul className="steps steps-horizontal fixed bottom-3 left-1/2 -translate-x-1/2 md:steps-vertical md:bottom-0 md:left-3 md:top-1/2 md:-translate-y-1/2 md:translate-x-0">
       {Array.from({ length: maxStep + 1 }, (_, i) => {
         let className = 'step'
 
