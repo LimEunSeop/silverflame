@@ -20,16 +20,21 @@ const BreadCrumbs = () => {
   const pathname = usePathname()
 
   const slashPositions = [...findIndexAll(pathname, '/')]
+  const linkNames = pathname.split('/')
 
   return (
     <div className="breadcrumbs px-4 text-sm">
       <ul>
-        {pathname.split('/').map((linkName, i) => {
+        {linkNames.map((linkName, i) => {
           if (i === 0) return null
 
           return (
             <li key={linkName}>
-              <Link href={pathname.slice(0, slashPositions[i]) as any}>{linkName}</Link>
+              {i === linkNames.length - 1 ? (
+                linkName
+              ) : (
+                <Link href={pathname.slice(0, slashPositions[i]) as any}>{linkName}</Link>
+              )}
             </li>
           )
         })}
