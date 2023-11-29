@@ -1,8 +1,10 @@
+'use client'
+
 import ToggleTheme from '@/components/inputs/ToggleTheme'
 import HomeLink from '@/components/links/HomeLink'
 import Image from 'next/image'
 import Link from 'next/link'
-import { ReactNode } from 'react'
+import { ReactNode, useEffect, useRef } from 'react'
 import ToggleMenu from './ToggleMenu'
 import LogoLink from '@/components/links/LogoLink'
 import BreadCrumbs from '@/domain/admin/@components/layouts/MainLayout/BreadCrumbs'
@@ -10,6 +12,18 @@ import { LINK_BLOG, LINK_GITHUB, LINK_NOTION } from '@/constants'
 import { ArrowTopRightOnSquareIcon } from '@heroicons/react/24/outline'
 
 const MainLayout = ({ children }: { children: ReactNode }) => {
+  const navRef = useRef<HTMLElement>(null)
+
+  useEffect(() => {
+    window.addEventListener('click', (e) => {
+      navRef.current?.querySelectorAll('details').forEach((detailsElement) => {
+        if (!detailsElement.contains(e.target as Node)) {
+          detailsElement.open = false
+        }
+      })
+    })
+  }, [])
+
   return (
     <div>
       <header className="navbar fixed top-0 z-10 bg-base-100 shadow-xl">
@@ -17,7 +31,7 @@ const MainLayout = ({ children }: { children: ReactNode }) => {
           <ToggleMenu />
           <LogoLink href="/careers" text="Careers" />
         </div>
-        <nav className="navbar-center hidden lg:flex">
+        <nav ref={navRef} className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
             <li>
               <Link href="/careers/intro">Intro</Link>
