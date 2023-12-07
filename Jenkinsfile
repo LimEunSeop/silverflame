@@ -5,6 +5,15 @@ pipeline {
     buildDiscarder logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '5', daysToKeepStr: '', numToKeepStr: '5')
   }
 
+  node {
+    env.NODEJS_HOME = "${tool 'node-lts'}"
+    // on linux / mac
+    env.PATH="${env.NODEJS_HOME}/bin:${env.PATH}"
+    // on windows
+    env.PATH="${env.NODEJS_HOME};${env.PATH}"
+    sh 'npm --version'
+  }
+
   stages {
     stage('TEST - DEV') {
       when {
@@ -12,10 +21,8 @@ pipeline {
       }
 
       steps {
-        nodejs(nodeJSInstallationName: 'node-lts') {
-          sh 'npm ci'
-          sh 'npm run test:ci -- --passWithNoTests' // 프로덕션 배포때는 테스트 하지 말자
-        }
+        sh 'npm ci'
+        sh 'npm run test:ci -- --passWithNoTests' // 프로덕션 배포때는 테스트 하지 말자
       }
     }
     stage('Build - PROD') {
@@ -32,18 +39,16 @@ pipeline {
       }
 
       steps {
-        nodejs(nodeJSInstallationName: 'node-lts') {
-          sh 'echo > .env.production'
-          sh 'echo DATABASE_URL=${DATABASE_URL} >> .env.production'
-          sh 'echo NEXTAUTH_URL=${NEXTAUTH_URL} >> .env.production'
-          sh 'echo NEXTAUTH_SECRET=${NEXTAUTH_SECRET} >> .env.production'
-          sh 'echo GITHUB_ID=${GITHUB_ID} >> .env.production'
-          sh 'echo GITHUB_SECRET=${GITHUB_SECRET} >> .env.production'
+        sh 'echo > .env.production'
+        sh 'echo DATABASE_URL=${DATABASE_URL} >> .env.production'
+        sh 'echo NEXTAUTH_URL=${NEXTAUTH_URL} >> .env.production'
+        sh 'echo NEXTAUTH_SECRET=${NEXTAUTH_SECRET} >> .env.production'
+        sh 'echo GITHUB_ID=${GITHUB_ID} >> .env.production'
+        sh 'echo GITHUB_SECRET=${GITHUB_SECRET} >> .env.production'
 
-          sh 'npm ci --platform=linuxmusl --arch=x64' // 배포가 되는 alpine linux 서버의 플랫폼 아키텍쳐. sharp 에러 해결
-          sh 'npx prisma migrate deploy'
-          sh 'npm run build'
-        }
+        sh 'npm ci --platform=linuxmusl --arch=x64' // 배포가 되는 alpine linux 서버의 플랫폼 아키텍쳐. sharp 에러 해결
+        sh 'npx prisma migrate deploy'
+        sh 'npm run build'
       }
     }
     stage('Deploy - PROD') {
