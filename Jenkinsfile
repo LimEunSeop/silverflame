@@ -5,16 +5,14 @@ pipeline {
     buildDiscarder logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '5', daysToKeepStr: '', numToKeepStr: '5')
   }
 
-  node {
+  stages {
     env.NODEJS_HOME = "${tool 'node-lts'}"
     // on linux / mac
     env.PATH="${env.NODEJS_HOME}/bin:${env.PATH}"
     // on windows
     env.PATH="${env.NODEJS_HOME};${env.PATH}"
     sh 'npm --version'
-  }
 
-  stages {
     stage('TEST - DEV') {
       when {
         branch 'develop'
