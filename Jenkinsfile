@@ -13,7 +13,6 @@ pipeline {
 
       steps {
         nodejs(nodeJSInstallationName: 'node-lts') {
-          sh 'echo $PATH'
           sh 'npm ci'
           sh 'npm run test:ci -- --passWithNoTests' // 프로덕션 배포때는 테스트 하지 말자
         }
