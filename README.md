@@ -21,6 +21,13 @@ URL: https://silverflame.dev
 - 이것에 대해서 많은 고민을 했었다. 그 중의 하나는, 빌드 시 아예 static site 를 생성하지 않는것이었는데, 기본을 해치는 방법이므로 옳은 방법은 아닌것 같다.
 - 내 해결책은 git hook을 도입하는 것이다. push 전에 반드시 `npm run build`를 하여 성공 시에만 push 되도록. 그렇게 하면 파이프라인 내에서도 오류없이 빌드가 진행될 것이다.
 
+## Jenkins nodejs 플러그인 적용법
+
+- \*\* 플러그인 설치 잘 했는데 내가 원하는 node 버전 안찍힌다.. 실행권한 할당 안돼서 그런거다. 그리고 얘가 node만 설치하고 npm은 설치 안한다. 아래는 해결방법이다.
+- jenkins web에서 nodejs 플러그인을 일단 설치한다.
+- docker-compose 설정에서 user: root 설정해두자. 터미널로 접근 후, npm은 apt-get install로 설치한다.
+- node가 깔린 위치를 찾아가서 x 권한 추가해줘야된다. jenkins_home의 tools를 잘 찾아보자. 이런 애가 있다. /var/jenkins_home/tools/jenkins.plugins.nodejs.tools.NodeJSInstallation/node-lts/bin
+
 ## Todo
 
 - CD 파이프라인에서 빌드 시 변경된 데이터베이스가 미리 필요하여 migration 후 빌드하도록 했다. 만약 빌드가 실패한다면 치명적인 배포오류가 발생하는데, 이 해결방법을 main 브랜치 병합 전 husky로 미리 빌드해보아 성공여부를 결정하는 것이었다. 더 효율적인 방법이 없을까? push 할때마다 빌드시간이 걸리는 비효율이 좀 발생한다.(이게 배포에 대한 고민의 기회를 좀 더 줄 수도 있다..)
