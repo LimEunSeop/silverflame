@@ -6,7 +6,7 @@ pipeline {
   }
 
   tools {
-    node 'node-lts' 
+    nodejs 'node-lts' 
   }
 
   stages {
