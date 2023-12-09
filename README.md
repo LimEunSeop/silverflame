@@ -21,12 +21,11 @@ URL: https://silverflame.dev
 - 이것에 대해서 많은 고민을 했었다. 그 중의 하나는, 빌드 시 아예 static site 를 생성하지 않는것이었는데, 기본을 해치는 방법이므로 옳은 방법은 아닌것 같다.
 - 내 해결책은 git hook을 도입하는 것이다. push 전에 반드시 `npm run build`를 하여 성공 시에만 push 되도록. 그렇게 하면 파이프라인 내에서도 오류없이 빌드가 진행될 것이다.
 
-## Jenkins nodejs 플러그인 적용법
+## 주의사항
 
-- \*\* 플러그인 설치 잘 했는데 내가 원하는 node 버전 안찍힌다.. 실행권한 할당 안돼서 그런거다. 그리고 얘가 node만 설치하고 npm은 설치 안한다. 아래는 해결방법이다.
-- jenkins web에서 nodejs 플러그인을 일단 설치한다.
-- docker-compose 설정에서 user: root 설정해두자. 터미널로 접근 후, npm은 apt-get install로 설치한다.
-- node가 깔린 위치를 찾아가서 x 권한 추가해줘야된다. jenkins_home의 tools를 잘 찾아보자. 이런 애가 있다. /var/jenkins_home/tools/jenkins.plugins.nodejs.tools.NodeJSInstallation/node-lts/bin
+- 볼륨을 운영하고 그걸 그대로 백업하면서 운영하면, 나중에 복원 시 권한문제가 발생할 수 있습니다.
+  - nodejs 플러그인 사용시, 소유자 권한이 확보되어야 node 버전이 제대로 인식됩니다. tools 폴더에서 node 관련된것 삭제하고 자동으로 재설치를 유도해야됩니다.
+  - sshagent 적용 시 ssh 키 관련 파일들 권한으로 ssh 연결이 제대로 안될수가 있습니다. 다음 주소를 참고하여 권한이 제대로 됐는지 확인해주세요.
 
 ## Todo
 
