@@ -2,6 +2,11 @@
 
 URL: https://silverflame.dev
 
+## 중점으로 보시면 좋을 것들
+
+- CI/CD 방식입니다. 보통은 프로젝트를 Dockerfile에 캡슐화 하여 안정적으로 진행해야 한다고 생각합니다. 하지만 NAS에서 운영되는 docker 시스템에서는 미리 정해진 컨테이너를 띄워야하는 한계점이 있었습니다. 이에대한 해결책으로, 배포 시 Jenkins 에서 빌드를 진행한 후의 결과물을 프로덕션으로 보내는 방식을 이용했습니다. 시스템 아키텍쳐가 일치하지 않는 위험성이 따를 수 있으나, 빌드 시 타겟 시스템 아키텍쳐를 명시해주어 이를 해결했습니다.
+- 프로젝트 구성 방식입니다. husky를 사용하여 최대한 안정적인 git commit, push 환경을 구성했으며, 개발자가 프로젝트를 직관적이고 체계적으로 관리할 수 있도록 프로젝트 트리를 recursive하게 구성하였습니다.
+
 ## 환경세팅 Check-List
 
 - [] create-next-app 실행
@@ -30,7 +35,7 @@ URL: https://silverflame.dev
 ## Todo
 
 - CD 파이프라인에서 빌드 시 변경된 데이터베이스가 미리 필요하여 migration 후 빌드하도록 했다. 만약 빌드가 실패한다면 치명적인 배포오류가 발생하는데, 이 해결방법을 main 브랜치 병합 전 husky로 미리 빌드해보아 성공여부를 결정하는 것이었다. 더 효율적인 방법이 없을까? push 할때마다 빌드시간이 걸리는 비효율이 좀 발생한다.(이게 배포에 대한 고민의 기회를 좀 더 줄 수도 있다..)
-  - 개선안 아이디어: main 브랜체는 pull 막고, pull request 같은것만 받는다. develop 브랜치에서 테스트 및 빌드성공을 한 커밋을 merge 할 수 있도록 한다. Q) 메인에서 다시 빌드 하는게 필요할까? 하는 부분은 다시 고민해봐야될듯
+  - 개선안 아이디어: main 브랜치는 pull 막고, pull request 같은것만 받는다. develop 브랜치에서 테스트 및 빌드성공을 한 커밋을 merge 할 수 있도록 한다. Q) 메인에서 다시 빌드 하는게 필요할까? 하는 부분은 다시 고민해봐야될듯
 - ~~아래와 같은 에러를 해결해보자. .env 를 설정하고 명령어 실행시 환경변수를 세팅해줘도 해결되지 않았다. 이거..해결해야 한다 꼭~~
   - ~~error: 'sharp' is required to be installed in standalone mode for the image optimization to function correctly. Read more at: https://nextjs.org/docs/messages/sharp-missing-in-production~~
   - npm ci 시 프로덕션 플랫폼 옵션을 위해 해결하였다.
