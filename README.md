@@ -25,7 +25,7 @@ URL: https://silverflame.dev
 
 - 볼륨을 운영하고 그걸 그대로 백업하면서 운영하면, 나중에 복원 시 권한문제가 발생할 수 있습니다.
   - nodejs 플러그인 사용시, 소유자 권한이 확보되어야 node 버전이 제대로 인식됩니다. tools 폴더에서 node 관련된것 삭제하고 자동으로 재설치를 유도해야됩니다.
-  - sshagent 적용 시 ssh 키 관련 파일들 권한으로 ssh 연결이 제대로 안될수가 있습니다. 다음 주소를 참고하여 권한이 제대로 됐는지 확인해주세요.
+  - sshagent 적용 시 ssh 키 관련 파일들 권한으로 ssh 연결이 제대로 안될수가 있습니다. 다음 주소를 참고하여 권한이 제대로 됐는지 확인해주세요. https://docs.digitalocean.com/support/how-to-troubleshoot-ssh-authentication-issues/#fixing-key-permissions-and-ownership
 
 ## Todo
 
