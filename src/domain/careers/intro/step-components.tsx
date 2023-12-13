@@ -22,8 +22,8 @@ export const Step1 = () => {
         안녕하세요, 정리를 생활화하는 프론트엔드 개발자
         <br />
         임은섭입니다.
-        <br />
-        <span className="text-xs">디자인은 아직 구상중입니다. 죄송합니다 😭</span>
+        {/* <br /> */}
+        {/* <span className="text-xs">디자인은 아직 구상중입니다. 죄송합니다 😭</span> */}
       </p>
 
       <div className="absolute bottom-12 md:bottom-5">
