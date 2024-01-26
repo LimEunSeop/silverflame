@@ -8,11 +8,11 @@ const careersData = {
   githubUrl: 'https://github.com/LimEunSeop/silverflame',
   images: {
     create: [
-      {
-        altText: '경력관리 사이트 데스크탑 이미지 1',
-        url: '/images/project-images/careers-desktop-1.png',
-        platform: 'DESKTOP',
-      },
+      // {
+      //   altText: '경력관리 사이트 데스크탑 이미지 1',
+      //   url: '/images/project-images/careers-desktop-1.png',
+      //   platform: 'DESKTOP',
+      // },
       {
         altText: '경력관리 사이트 데스크탑 이미지 2',
         url: '/images/project-images/careers-desktop-2.png',
@@ -43,11 +43,11 @@ const careersData = {
         url: '/images/project-images/careers-desktop-7.png',
         platform: 'DESKTOP',
       },
-      {
-        altText: '경력관리 사이트 모바일 이미지 1',
-        url: '/images/project-images/careers-mobile-1.png',
-        platform: 'MOBILE',
-      },
+      // {
+      //   altText: '경력관리 사이트 모바일 이미지 1',
+      //   url: '/images/project-images/careers-mobile-1.png',
+      //   platform: 'MOBILE',
+      // },
       {
         altText: '경력관리 사이트 모바일 이미지 2',
         url: '/images/project-images/careers-mobile-2.png',
