@@ -10,7 +10,7 @@ const nextConfig = {
       },
       {
         source: '/careers',
-        destination: '/careers/intro',
+        destination: '/careers/experiences',
         permanent: true,
       },
       {

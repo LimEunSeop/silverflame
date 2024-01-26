@@ -33,9 +33,9 @@ const MainLayout = ({ children }: { children: ReactNode }) => {
         </div>
         <nav ref={navRef} className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
-            <li>
+            {/* <li>
               <Link href="/careers/intro">Intro</Link>
-            </li>
+            </li> */}
             <li tabIndex={0}>
               <details>
                 <summary>Experiences</summary>

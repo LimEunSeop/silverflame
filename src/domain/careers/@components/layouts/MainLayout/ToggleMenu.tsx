@@ -38,11 +38,11 @@ const ToggleMenu = () => {
           <label htmlFor="drawer" aria-label="close sidebar" className="drawer-overlay"></label>
           <ul className="menu min-h-full w-80 bg-base-200 p-4">
             {/* Sidebar content here */}
-            <li>
+            {/* <li>
               <Link href="/careers/intro" onClick={handleMenuClicked}>
                 Intro
               </Link>
-            </li>
+            </li> */}
             <li>
               <Link href="/careers/experiences" onClick={handleMenuClicked}>
                 Experiences
