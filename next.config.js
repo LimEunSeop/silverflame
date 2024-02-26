@@ -30,6 +30,15 @@ const nextConfig = {
       },
     ]
   },
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: '**.silverflame.dev',
+        port: '',
+      },
+    ],
+  },
   experimental: {
     typedRoutes: true,
   },
